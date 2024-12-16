@@ -1,7 +1,7 @@
 <template>
   <div id="contents">
     <div id="image">
-      <img src="../assets/images/agumon.png" />
+      <img src="../../assets/tmp/images/agumon.png" />
     </div>
     <div id="dday">
       <h1>뭐긴 뭐야 수능이지</h1>
@@ -12,7 +12,7 @@
   <div id="audio">
     <!--    <iframe src="silence.mp3" allow="autoplay" id="a" style="display:none"></iframe>-->
     <audio ref="audioPlayer" controls loop hidden>
-      <source src="../assets/music/exciting.mp3" type="audio/mpeg" />
+      <source src="../../assets/tmp/music/exciting.mp3" type="audio/mpeg" />
       <!--      <source src="HelloDigimon.mp3" type="audio/mpeg" />-->
     </audio>
   </div>

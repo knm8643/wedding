@@ -2,7 +2,7 @@
   <div class="gameContainer">
     <div class="gameBox">
       <audio ref="audioPlayer" controls loop hidden>
-        <source src="../assets/music/bgm1.mp3" type="audio/mpeg" />
+        <source src="../../assets/tmp/music/bgm1.mp3" type="audio/mpeg" />
       </audio>
       <canvas ref="canvas" width="360" height="400"></canvas>
       <div class="gameScores">
@@ -77,11 +77,11 @@ export default class PacmanGame extends Vue {
       gameOn: true,
       score: 0,
       finalScore: 0,
-      imagesData5: require("@/assets/images/sp.png"),
-      imagesData4: require("@/assets/images/kcar3.gif"),
-      imagesData3: require("@/assets/images/j.webp"),
-      imagesData2: require("@/assets/images/ham.webp"),
-      imagesData: require("@/assets/images/kcar2.png"),
+      imagesData5: require("@/assets/tmp/images/sp.png"),
+      imagesData4: require("@/assets/tmp/images/kcar3.gif"),
+      imagesData3: require("@/assets/tmp/images/j.webp"),
+      imagesData2: require("@/assets/tmp/images/ham.webp"),
+      imagesData: require("@/assets/tmp/images/kcar2.png"),
       imageLoaded: false,
       oranges: [],
     };
@@ -378,7 +378,7 @@ h4 {
   height: 10px;
 }
 .gameContainer {
-  background-image: url("../assets/images/back2.webp");
+  background-image: url("../../assets/tmp/images/back2.webp");
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;

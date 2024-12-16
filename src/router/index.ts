@@ -17,31 +17,31 @@ const routes: Array<RouteRecordRaw> = [
     path: "/about",
     name: "about",
     component: () =>
-      import(/* webpackChunkName: "about" */ "../views/AboutView.vue"),
+      import(/* webpackChunkName: "about" */ "../views/tmp/AboutView.vue"),
   },
   {
     path: "/pacman",
     name: "pacman",
     component: () =>
-      import(/* webpackChunkName: "about" */ "../views/Pacman.vue"),
+      import(/* webpackChunkName: "about" */ "../views/tmp/Pacman.vue"),
   },
   {
     path: "/anyThingPage",
     name: "anyThingPage",
     component: () =>
-      import(/* webpackChunkName: "about" */ "../views/AnyThingPage.vue"),
+      import(/* webpackChunkName: "about" */ "../views/tmp/AnyThingPage.vue"),
   },
   {
     path: "/spade",
     name: "spade",
     component: () =>
-      import(/* webpackChunkName: "about" */ "../views/Spade.vue"),
+      import(/* webpackChunkName: "about" */ "../views/tmp/Spade.vue"),
   },
   {
     path: "/clone",
     name: "clone",
     component: () =>
-      import(/* webpackChunkName: "about" */ "../views/cloneCode.vue"),
+      import(/* webpackChunkName: "about" */ "../views/tmp/cloneCode.vue"),
   },
 ];
 

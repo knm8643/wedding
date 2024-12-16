@@ -6,7 +6,7 @@
 
 <script lang="ts">
 import { Options, Vue } from "vue-class-component";
-import pacman from "@/components/PacManComponent.vue";
+import pacman from "@/components/tmp/PacManComponent.vue";
 
 @Options({
   components: { pacman },

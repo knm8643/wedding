@@ -6,7 +6,7 @@
 
 <script lang="ts">
 import { Options, Vue } from "vue-class-component";
-import anyThingPage from "@/components/AnythingPageComponent.vue";
+import anyThingPage from "@/components/tmp/AnythingPageComponent.vue";
 
 @Options({
   components: { anyThingPage },

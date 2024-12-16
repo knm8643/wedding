@@ -7,8 +7,8 @@
 
 <script lang="ts">
 import { Options, Vue } from "vue-class-component";
-import HelloWorld from "@/components/HelloWorld.vue"; // @ is an alias to /src
-import HelloWorld2 from "@/components/HelloWorldVer2.vue";
+import HelloWorld from "@/components/tmp/HelloWorld.vue"; // @ is an alias to /src
+import HelloWorld2 from "@/components/tmp/HelloWorldVer2.vue";
 
 @Options({
   components: {

@@ -6,7 +6,7 @@
 
 <script lang="ts">
 import { Options, Vue } from "vue-class-component";
-import spade from "@/components/SpadeComponent.vue";
+import spade from "@/components/tmp/SpadeComponent.vue";
 
 @Options({
   components: { spade },

@@ -46,7 +46,7 @@
           </div>
         </article>
         <article class="right-side">
-          <img src="../assets/images/레이.jpeg" />
+          <img src="../../assets/tmp/images/레이.jpeg" />
           <!--          <p>-->
           <!--            Copyright (C) 2024.03 유림충재 날씨 좋은 어느날 함께<br />-->
           <!--            © 이충재 &lt;knm8643@nate.com&gt;&lt;010-5696-1909&gt;-->

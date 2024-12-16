@@ -39,8 +39,8 @@ Published
 ```
 
 ### Customize configuration
-4. IntelliJ에서 ESLint 검사 끄기
-    1.	Preferences > Languages & Frameworks > JavaScript > Code Quality Tools > ESLint로 이동.
-    2.	Automatic ESLint Configuration 또는 Manual ESLint Configuration을 해제합니다.
+1.  IntelliJ에서 ESLint 검사 끄기
+2.  Preferences > Languages & Frameworks > JavaScript > Code Quality Tools > ESLint로 이동.
+3.  Automatic ESLint Configuration 또는 Manual ESLint Configuration을 해제합니다.
    
 See [Configuration Reference](https://cli.vuejs.org/config/).

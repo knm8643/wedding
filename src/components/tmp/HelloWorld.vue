@@ -348,5 +348,5 @@ export default class HelloWorld extends Vue {
 </script>
 
 <style scoped lang="scss">
-@import "src/assets/scss/HelloWorld.scss";
+@import "../../assets/tmp/scss/HelloWorld";
 </style>

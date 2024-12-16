@@ -6,7 +6,7 @@
 
 <script lang="ts">
 import { Options, Vue } from "vue-class-component";
-import About from "@/components/About.vue";
+import About from "@/components/tmp/About.vue";
 
 @Options({
   components: { About },
