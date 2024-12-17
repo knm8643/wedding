@@ -1,0 +1,11 @@
+<svg width="13" height="14" viewBox="0 0 13 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Group 13977">
+<path id="Subtract" fill-rule="evenodd" clip-rule="evenodd" d="M2 1H9.00006C9.55234 1 10.0001 1.44771 10.0001 2V8C10.3507 8.00001 10.6873 8.06017 11.0001 8.17073V2C11.0001 0.895431 10.1046 0 9.00006 0H2C0.895431 0 0 0.89543 0 2V11C0 12.1046 0.89543 13 2 13H7.76389C7.50564 12.7115 7.30241 12.3726 7.17071 12H2C1.44772 12 1 11.5523 1 11V2C1 1.44772 1.44772 1 2 1Z" fill="#FAFBFB"/>
+<path id="Vector" d="M3 6H8" stroke="#FAFBFB" stroke-miterlimit="10" stroke-linecap="round"/>
+<path id="Vector_2" d="M3 3.5H8" stroke="#FAFBFB" stroke-miterlimit="10" stroke-linecap="round"/>
+<path id="Vector_3" d="M3 8.5H6" stroke="#FAFBFB" stroke-miterlimit="10" stroke-linecap="round"/>
+<g id="Group 13923">
+<path id="Subtract_2" fill-rule="evenodd" clip-rule="evenodd" d="M10 14C11.6569 14 13 12.6569 13 11C13 9.34315 11.6569 8 10 8C8.34315 8 7 9.34315 7 11C7 12.6569 8.34315 14 10 14ZM11.594 10.4078C11.764 10.1902 11.7254 9.87599 11.5078 9.70599C11.2902 9.53598 10.976 9.57457 10.806 9.79218L9.66543 11.2521L9.16476 10.718C8.97589 10.5166 8.65948 10.5064 8.45802 10.6952C8.25656 10.8841 8.24636 11.2005 8.43522 11.402L9.33522 12.362C9.4351 12.4685 9.57658 12.5261 9.72247 12.5195C9.86836 12.5129 10.0041 12.4429 10.094 12.3278L11.594 10.4078Z" fill="#FAFBFB"/>
+</g>
+</g>
+</svg>

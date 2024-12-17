@@ -1,0 +1,123 @@
+.cta_wrap {
+  width: 100%;
+  background: #fff;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+
+  .button_wrap {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 16px 16px 24px;
+    box-sizing: border-box;
+
+    .button {
+      flex: 1 1 auto;
+      width: 100%;
+      padding: 10px 12px;
+      margin: 0;
+      font-size: 16px;
+      border-radius: 2px;
+
+      &.disabled {
+        border: 1px solid var(--borderButton-primary-disabled);
+        background-color: var(--surfaceButton-primary-disabled);
+        color: var(--textButton-primary-disabled);
+      }
+
+      &.active {
+        border: 1px solid var(--borderButton-primary-enabled);
+        background-color: var(--surfaceButton-primary-enabled);
+        color: var(--textButton-primary-enabled);
+      }
+    }
+
+    // 버든 두 개일 때
+    &.double {
+      .button:first-child {
+        margin-right: 8px;
+        border: 1px solid var(--borderButton-secondary-enabled);
+        color: var(--textButton-secondary-enabled);
+        background-color: white;
+      }
+
+      .button:nth-child(2) {
+        background: var(--surfaceButton-primary-enabled);
+        color: white;
+      }
+
+      // 버튼 사이즈 다를 때 - 작은 버튼
+      .button_small {
+        width: 33%;
+        padding: 10px 12px;
+        font-size: 16px;
+        border-radius: 2px;
+      }
+
+      // 버튼 사이즈 다를 때 - 큰 버튼
+      .button_big {
+        width: 66%;
+        padding: 10px 12px;
+        font-size: 16px;
+        border-radius: 2px;
+      }
+
+      .grey {
+        border: 1px solid var(--borderButton-gray-enabled);
+        color: var(--textButton-gray-enabled);
+        background-color: var(--surfaceButton-gray-enabled);
+        margin-right: 8px;
+      }
+
+      .navy {
+        border: var(--borderButton-primary-enabled);
+        background-color: var(--surfaceButton-primary-enabled);
+        color: var(--textButton-primary-enabled);
+
+        &:disabled {
+          opacity: 0.5;
+        }
+      }
+    }
+
+    // 포토리뷰 상세보기
+    &.double2 {
+      .button {
+        border: 1px solid var(--borderButton-secondary-enabled);
+        color: var(--textButton-secondary-enabled);
+        background-color: white;
+      }
+      .button:first-child {
+        margin-right: 8px;
+      }
+    }
+
+    // 일반주문, 픽업주문, 배달주문
+    &.triple {
+      column-gap: 8px;
+
+      .button {
+        width: calc(100% / 3);
+        border: 0.6px solid var(--borderButton-tertiary-enabled);
+        border-radius: 2px;
+        width: 100%;
+        padding: 12px 16px;
+        font-size: 14px;
+        font-weight: 700;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        img {
+          width: 32px;
+          height: 32px;
+          margin-bottom: 4px;
+        }
+      }
+    }
+  }
+}

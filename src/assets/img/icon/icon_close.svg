@@ -1,0 +1,14 @@
+<!--<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">-->
+<!--<mask id="mask0_5847_22582" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">-->
+<!--<path fill-rule="evenodd" clip-rule="evenodd" d="M2.99999 20.0615L20.0615 3L20.9999 3.93833L3.93832 20.9999L2.99999 20.0615Z" fill="black" fill-opacity="0.9"/>-->
+<!--<path fill-rule="evenodd" clip-rule="evenodd" d="M3.93847 2.99999L21 20.0615L20.0617 20.9999L3.00014 3.93831L3.93847 2.99999Z" fill="black" fill-opacity="0.9"/>-->
+<!--</mask>-->
+<!--<g mask="url(#mask0_5847_22582)">-->
+<!--<rect width="24" height="24" fill="black" fill-opacity="0.9"/>-->
+<!--</g>-->
+<!--</svg>-->
+
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M21 2.99982L2.99984 21" stroke="black"/>
+    <path d="M21 21.0002L2.99984 3.00002" stroke="black"/>
+</svg>

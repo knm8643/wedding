@@ -1,0 +1,322 @@
+@import '../../../public/font/spoqaHanSansNeo/spoqaHanSansNeo.css';
+@import '@/assets/scss/productOptions.scss';
+@import '@/assets/scss/button.scss';
+@import '@/assets/scss/cta.scss';
+@import '@/assets/scss/tabList.scss';
+@import '@/assets/scss/chip.scss';
+@import '@/assets/scss/list.scss';
+@import '@/assets/scss/accordion.scss';
+@import '@/assets/scss/credit_card.scss';
+@import '@/assets/scss/datepicker.scss';
+
+*:focus {
+  outline: 0;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+}
+:root {
+  // 다크모드 방지
+  color-scheme: light only;
+}
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  font-size: 62.5%;
+  font-family: 'Spoqa Han Sans Neo', 'S-Core Dream', sans-serif;
+  color: var(--text-primary);
+}
+body * {
+  letter-spacing: -0.3px;
+  line-height: 150%;
+}
+html, body {
+  -webkit-user-select: none;
+  position: fixed;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+
+.font-fanwood {
+  font-family: 'Fanwood Text', serif;
+}
+
+input,
+select,
+textarea,
+button {
+  font-family: inherit;
+  color: inherit;
+}
+
+input[type="text"]{
+  padding:1px 0;
+}
+
+#app {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  touch-action: pan-y;
+  overscroll-behavior: none;
+}
+
+body.touch-start {
+  overscroll-behavior-y: none;
+}
+
+.swiper-pagination-progressbar {
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.toast {
+  position: fixed;
+  bottom: 140px;
+  left: 50%;
+  opacity: 0;
+  text-align: center;
+  white-space: nowrap;
+  font-size: var(--fontsize-medium);
+  font-weight: var(--fontweight-medium);
+  transform: translate(-50%, 0);
+  border-radius: 25px;
+  color: var(--textBasic-white);
+  padding: 8px 16px;
+  background-color: var(--grayOpacity-gray-t500);
+  word-break: keep-all;
+  z-index: 9999999;
+  &.on {
+    opacity: 1;
+  }
+  .icon {
+    position: relative;
+    padding-left: 24px;
+    &::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 8px;
+      width: 16px;
+      height: 16px;
+      background-color: var(--grayOpacity-gray-t500);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+    }
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 16px;
+      height: 16px;
+      margin-top: -8px;
+      mask: url('../../assets/img/icon/icon_arrow.svg') no-repeat center / contain;
+      background-color: var(--surfaceBasic-white);
+    }
+  }
+}
+
+// 카드 로고 모음
+/*
+CCKM - 국민카드
+CCBC - BC카드
+CCNH - NH농협카드
+CCSG - 씨티카드
+CCHM - 씨티카드
+CCAM - 롯데아멕스카드
+CCLO - 롯데카드
+CCHN - 하나카드
+CCSS - 삼성카드
+CCUF - 은련카드
+CCKJ - 광주카드
+CCSU - 수협카드
+CCJB - 전북카드
+CCCJ - 제주카드
+CCLG - 신한카드
+CVSF - 해외비자
+CMCF - 해외마스터
+CJCF - 해외JCB
+CCKE - 하나카드(외환)
+CCDI - 현대카드
+*/
+.card-logo {
+  &.ccdi {
+    // background-image: url('../img/card/card_hyundai.png');
+  }
+}
+
+// 텍스트 클래스
+@mixin text-basic {
+  line-height: 1.5;
+  letter-spacing: -0.3px;
+}
+.text_24 {
+  @include text-basic();
+  font-size: var(--fontsize-xxlarge);
+}
+.text_20 {
+  @include text-basic();
+  font-size: var(--fontsize-xlarge);
+}
+.text_16 {
+  @include text-basic();
+  font-size: var(--fontsize-xmedium);
+}
+.text_14 {
+  @include text-basic();
+  font-size: var(--fontsize-medium);
+}
+.text_12 {
+  @include text-basic();
+  font-size: var(--fontsize-small);
+}
+.text_11 {
+  @include text-basic();
+  font-size: var(--fontsize-xsmall);
+}
+.text_10 {
+  @include text-basic();
+  font-size: var(--fontsize-xxsmall);
+}
+
+.text_bd {
+  font-weight: var(--fontweight-bold);
+}
+.text_md {
+  font-weight: var(--fontweight-medium);
+}
+.text_rg {
+  font-weight: var(--fontweight-regular);
+}
+
+// 헤더 높이 값 만큼의 padding-top
+.pt-headerHeight {
+  padding-top: 56px;
+}
+
+.will__sales {
+  background: rgba(87, 15, 158, 0.7) !important;
+  color: var(--textBasic-white) !important;
+}
+
+header {
+  .top-right-box,
+  .header_wrap {
+    .btn_cart {
+      position: relative;
+
+      .badge {
+        position: absolute;
+        top: 0;
+        right: -6px;
+        min-width: 12px;
+        height: 12px;
+        padding: 0 3px;
+        border-radius: 6px;
+        background: var(--surfaceBasic-warning);
+        color: var(--textBasic-invert);
+        line-height: 12px;
+      }
+    }
+  }
+}
+
+.modal-content .order_wrap section:has(.total_box) .total_box {
+  margin-top: 16px;
+}
+
+section + .payment_wrap {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.modal-wrap.bottom {
+  .modal-footer {
+    padding-bottom: 32px;
+  }
+} 
+
+.wrap{
+  &.active{
+    position:fixed;
+    width: 100%;
+    z-index: 9999999;
+  }
+}
+
+.thumbnail{
+  .inner{
+    border-radius: 12px;
+    overflow: hidden;
+    border: 0.6px solid #E4E4E4;
+  }
+}
+
+.dot{
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.dot2{
+  text-overflow: ellipsis;
+  overflow: hidden;
+  word-break: break-word;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 2; // 원하는 라인수
+  -webkit-box-orient: vertical
+}
+
+.a11y-hidden {
+  margin: 0;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: polygon(0 0, 0 0, 0 0); // 크롬, 파이어폭스, 오페라
+  clip: rect(0 0 0 0); // IE 6, 7
+  clip: rect(0, 0, 0, 0); // 그 이후 IE
+}
+
+.slide-enter-active,
+.slide-leave-active {
+  transform: translateX(0);
+  transition-duration: 0.5s;
+}
+
+.slide-enter,
+.slide-leave-to {
+  transform: translateX(100%);
+  transition-duration: 0.5s;
+}
+
+.slide-down-enter-active,
+.slide-down-leave-active {
+  transform: translateY(0);
+  opacity: 1;
+  transition-duration: 0.5s;
+}
+
+.slide-down-enter,
+.slide-down-leave-to {
+  transform: translateY(-100%);
+  opacity: 0;
+  transition-duration: 0.5s;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
+}
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+}

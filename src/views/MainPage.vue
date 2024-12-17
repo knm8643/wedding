@@ -1,12 +1,20 @@
 <template>
   <div>
-    어서오세요 환영합니다~
+    <!-- 모바일 -->
+    <MobileComponent/>
+
+    <!-- 웹 -->
+    <WebComponent/>
   </div>
 </template>
 
 <script>
+import MobileComponent from "@/components/MobileComponent.vue";
+import WebComponent from "@/components/WebComponent.vue";
+
 export default {
   name: "mainPage",
+  components: {WebComponent, MobileComponent},
   data() {},
   mounted() {},
   methods: {},

@@ -1,0 +1,124 @@
+// DatePicker
+.mx-btn {
+  font-size: 16px !important;
+}
+.mx-btn-text {
+  color: $gray09 !important;
+}
+
+.mx-icon-double-left,
+.mx-icon-double-right {
+  display: none;
+}
+
+.mx-icon-left::before,
+.mx-icon-right::before {
+  width: 16px !important;
+  height: 16px !important;
+}
+
+.mx-calendar-content .cell {
+  width: 36px;
+  height: 36px;
+
+  &.active {
+    > div {
+      background: transparent;
+    }
+  }
+}
+
+.mx-calendar-content .cell:hover {
+  color: $gray09 !important;
+  background: none !important;
+}
+
+.mx-datepicker {
+  width: 100%;
+  padding: 0;
+  margin-bottom: 24px;
+
+  .mx-datepicker-main {
+    border: none;
+    font-family: 'Spoqa Han Sans Neo', 'Noto Sans KR', 'sans-serif';
+
+    .mx-calendar {
+      width: 100%;
+      padding: 0;
+    }
+    .mx-calendar-header {
+      width: 50%;
+      margin: 0 auto;
+      height: auto;
+      line-height: normal;
+      margin-bottom: 16px;
+    }
+
+    .mx-calendar-content {
+      height: auto;
+    }
+
+    .mx-table-date .today {
+      background: none;
+
+      div {
+        width: 36px;
+        height: 36px;
+        background-color: #f2f2f2;
+        border-radius: 999px;
+        color: #222222;
+        box-sizing: border-box;
+        margin: 0 auto;
+        line-height: 36px;
+      }
+    }
+    .mx-table-date {
+      div {
+        width: 36px;
+        height: 36px;
+        line-height: 36px;
+        margin: 0 auto;
+      }
+    }
+
+    .mx-table-date .active {
+      background: none;
+
+      div {
+        width: 36px;
+        height: 36px;
+        line-height: 36px;
+        border-radius: 999px;
+        background: #570f9e;
+        color: #fff;
+        border-bottom: none;
+        margin: 0 auto;
+      }
+    }
+    .mx-table-date thead th {
+      border-bottom: 1px solid $gray04;
+    }
+    .mx-table-date td,
+    .mx-table-date th {
+      font-size: var(--fontsize-medium);
+      font-weight: var(--fontweight-medium);
+    }
+    .mx-table-date td {
+      padding: 2px;
+      width: 36px;
+      height: 36px;
+      color: var(--textBasic-primary);
+    }
+    .not-current-month {
+      color: $gray05 !important;
+    }
+    .mx-table-year,
+    .mx-table-month {
+      margin-top: 10px;
+
+      .active {
+        background: #570f9e;
+      }
+    }
+  }
+}

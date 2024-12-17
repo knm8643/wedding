@@ -1,0 +1,184 @@
+.btn{
+  text-align:center;
+  padding:0 var(--spacing-sm-01);
+  border-radius:var(--radius-btn-radius);
+  width:100%;
+
+  &.is-type-primary{
+    background-color:var(--surface-primary);
+    &.is-state-default{
+      color:var(--text-invert)
+    }
+    &.is-state-pressed{
+      color:var(--text-tertiary)
+    }
+    &.is-state-disabled, &:disabled{
+      color:var(--text-tertiary);
+      background-color:var(--surface-primaryInvert)
+    }
+  }
+
+  // TYPE
+  &.is-type-secondary{
+    &.is-state-default{
+      border:1px solid var(--border-btnSecondary);
+      color:var(--text-primary);
+      background-color:var(--surface-secondary);
+    }
+    &.is-state-pressed{
+      border:1px solid var(--border-btnSecondary);
+      color:var(--text-secondary);
+      background-color:var(--surface-secondary);
+
+    }
+    &.is-state-disabled, &:disabled{
+      color:var(--text-tertiary);
+      background-color:var(--surface-secondaryInvert)
+    }
+  }
+  &.is-type-link{
+    &.is-state-default{
+      color:var(--text-secondary);
+    }
+    &.is-state-pressed{
+      color:var(--text-secondary);
+    }
+    &.is-state-disabled, &:disabled{
+      color:var(--text-tertiary);
+    }
+  }
+
+  &.is-type-tertiary{
+    &.is-state-default{
+      background-color:var(--surface-secondary);
+      color:var(--text-invert);
+    }
+    &.is-state-pressed{
+      background-color:var(--surface-secondary);
+      color:var(--text-tertiary);
+    }
+    &.is-state-disabled, &:disabled{
+      background-color:var(--surface-secondaryInvert);
+      color:var(--text-secondary);
+    }
+  }
+
+  &.is-type-gray{
+    &.is-state-default{
+      background-color:var(--surfaceButton-gray-enabled);
+      color:var(--text-primary);
+    }
+    &.is-state-pressed{
+      background-color:var(--surface-gray-02);
+      color:var(--text-secondary);
+    }
+    &.is-state-disabled, &:disabled{
+      background-color:var(--surface-grayInvert);
+      color:var(--text-secondary);
+    }
+  }
+  &.is-type-shadow{
+    box-shadow:var(--surface-shadow);
+    &.is-state-default{
+      color:var(--text-primary);
+      background-color:var(--surface-secondary);
+    }
+    &.is-state-pressed{
+      color:var(--text-secondary);
+      background-color:var(--surface-secondaryInvert);
+    }
+    &.is-state-disabled, &:disabled{
+      color:var(--text-tertiary);
+      background-color:var(--surface-secondaryInvert);
+    }
+  }
+
+  // SIZE
+  &.is-size-large{
+    height:44px;
+    font-size:var(--fontsize-large);
+    font-weight: var(--fontweight-bold);
+  }
+  &.is-size-medium{
+    height:32px;
+    font-size:var(--fontsize-medium);
+    font-weight: var(--fontweight-medium);
+  }
+  &.is-size-small{
+    height:24px;
+    border-radius:var(--radius-btn-sm);
+    font-size:var(--fontsize-small);
+    font-weight: var(--fontweight-medium);
+  } 
+}
+
+.btn-list-with-icon{
+  display:flex;
+  align-items: center;
+  gap:var(--spacing-sm-01);
+  > .icon {
+    width:32px;
+    height:32px;
+  }
+  .btn-list{
+    margin-top:0;
+  }
+}
+
+.btn-list{
+  display:flex;
+  width:100%;
+  gap: 8px;
+
+  /*
+  button {
+    flex: 1 1 auto;
+    position: relative;
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: var(--fontsize-xsmall);
+    background-color: #fff;
+    font-size: var(--fontsize-xsmall);
+    font-weight: var(--fontweight-medium);
+    color: $gray08;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 8px;
+      left: 0;
+      width: 24px;
+      height: 24px;
+    }
+  }
+  */
+  
+  &.is-same{
+    > *{
+      flex:1 1 calc(100% - 8px);
+    }
+  }
+  &.is-unbalance{
+    > *:nth-child(1){
+      flex:2 !important;
+    }
+    > *:nth-child(2){
+      flex:3 !important;
+    }
+  }
+}
+
+.sort-btn {
+  height: 32px;
+  font-size: var(--fontsize-medium);
+  font-weight: var(--fontweight-medium);
+  &:after {
+    content: '';
+    display: inline-block;
+    width: 16px;
+    height: 32px;
+    vertical-align: middle;
+    background: var(--icon-primary);
+    mask: url('../img/icon/icon_sort.svg') no-repeat center / contain;
+  }
+}

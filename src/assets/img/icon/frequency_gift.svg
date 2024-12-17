@@ -1,0 +1,13 @@
+<svg width="20" height="18" viewBox="0 0 20 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Group 13976">
+<path id="Subtract" fill-rule="evenodd" clip-rule="evenodd" d="M1 10V17C1 17.5523 1.44772 18 2 18H18C18.5523 18 19 17.5523 19 17V10H17.5V16.5H2.5V10H1Z" fill="#262627"/>
+<g id="Rectangle 7297">
+<mask id="path-2-inside-1_9476_13793" fill="white">
+<rect y="4" width="20" height="6" rx="1"/>
+</mask>
+<rect y="4" width="20" height="6" rx="1" stroke="#262627" stroke-width="3" mask="url(#path-2-inside-1_9476_13793)"/>
+</g>
+<path id="Vector 403" d="M10 4V16" stroke="#262627" stroke-width="1.5" stroke-linecap="square"/>
+<path id="Subtract_2" fill-rule="evenodd" clip-rule="evenodd" d="M3.5 4.99996V2.42115L9.39366 3.89457C9.79176 3.99409 10.2082 3.99409 10.6063 3.89457L16.5 2.42115V4.99996H18V1.78077C18 1.1302 17.3886 0.652837 16.7575 0.810624L10.2425 2.43936C10.0833 2.47917 9.9167 2.47917 9.75746 2.43936L3.24254 0.810624C2.61139 0.652837 2 1.1302 2 1.78077V4.99996H3.5Z" fill="#262627"/>
+</g>
+</svg>

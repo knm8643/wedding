@@ -1,0 +1,60 @@
+@charset "utf-8";
+
+/**
+    전역 scss 변수
+*/
+
+:root{
+  // 기본 root Color는 offWhite
+  --mainBg : #fafbfb;
+  --pointColor : #eb0050;
+  --pointfontColor : white;
+
+  // 추가 텍스트폰트
+  --fontsize-xmedium : 1.8rem;
+}
+
+// 전체 컬러
+$mainBg: #fafbfb;
+$brutalismBg: #fbf6ef;
+$paulBassettBg: #fceddb;
+
+// 테마별 버튼
+$brutalismFill: #fe893f;
+$paulBassettFill: #eb0050;
+
+// font size
+$font-xsmall: 1.1rem; //11px
+$font-small: 1.2rem; //12px
+$font-medium: 1.4rem; //14px
+$font-large: 1.6rem; //16px
+
+// color style
+// text color - gray 08, gray 06, gray 04
+$gray00: #fafbfb;
+$gray01: #f0f1f3;
+$gray02: #e9eaeb;
+$gray03: #e4e4e4;
+$gray04: #d7d8d9;
+$gray05: #b0b0b0;
+$gray06: #8b8c8d;
+$gray07: #4b4d4d;
+$gray08: #323334;
+$gray09: #262627;
+$alarm: #ff5a78;
+$require: red;
+
+// 가로여백
+$wrap-base1: 0 16px; //주문하기
+$wrap-base2: 0 20px; //로그인
+$wrap-base3: 0 24px; //회원가입
+
+// 세로 여백
+$wrap-vertical1: 16px 0;
+$wrap-vertical2: 20px 0;
+$wrap-vertical3: 24px 0;
+
+// 전체 여백
+$wrap1: 16px;
+$wrap2: 20px;
+$wrap3: 24px;

@@ -1,0 +1,105 @@
+.receipt-history {
+  padding: 12px 16px;
+  .orderinfo {
+    display: flex;
+    justify-content: space-between;
+    p {
+      font-size: var(--fontsize-xsmall);
+      color: var(--text-primary);
+    }
+  }
+  .order-items {
+    margin-top: 4px;
+    > ul {
+      > li:first-child {
+        font-weight: 700;
+        border-top: 1px solid var(--text-primary);
+        border-bottom: 1px solid var(--text-primary);
+        
+      }
+    }
+  }
+  .main-option {
+    padding: 8px;
+    text-align: left;
+    &.text-option {
+      padding: 4px 8px;
+      &:first-child {
+        margin-top: 4px;
+      }
+    }
+  }
+
+  .sub-options {
+    margin-top: 4px;
+    margin-bottom: 16px;
+    padding: 0 8px 0 28px;
+    color: #6e6e6e;
+    ul {
+      display: flex;
+      width: 100%;
+      flex-wrap: wrap;
+      gap: 4px;
+      li {
+        display: flex;
+        justify-content: space-between;
+        flex: 1 1 100%;
+        position: relative;
+        &:before {
+          position: absolute;
+          content: '';
+          width: 16px;
+          height: 16px;
+          top: 0px;
+          left: -16px;
+          background: url('../img/icon_receipt_line.svg') no-repeat center / contain;
+        }
+        .name {
+          flex-basis: calc(50% - 13px);
+          text-align: left;
+          font-weight: 500;
+        }
+      }
+    }
+  }
+  .cost-sum {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 4px;
+    padding: 8px;
+    border-top: 1px dashed var(--text-primary);
+    .name{
+      text-align: left;
+    }
+  }
+
+  .barcode {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 0;
+  }
+}
+
+.bold {
+  font-weight: 700;
+}
+.border-bottom {
+  border-bottom: 1px dashed var(--text-primary);
+}
+.text-wrap {
+  display: flex;
+  justify-content: space-between;
+  .name {
+    flex: 0 0 50%;
+    & + .qty {
+      flex: 0 0 30px;
+      text-align: center;
+      & + .value {
+        flex: 0 0 20%;
+        text-align: right;
+      }
+    }
+  }
+}

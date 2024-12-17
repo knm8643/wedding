@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+<mask id="mask0_6181_76026" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
+<rect x="5" y="3" width="14" height="18" fill="black" fill-opacity="0.24"/>
+<path d="M10.333 6.90015L15.9997 6.90015" stroke="black" stroke-opacity="0.9" stroke-linecap="round"/>
+<path d="M10.333 10.3L13.733 10.3" stroke="black" stroke-opacity="0.9" stroke-linecap="round"/>
+<path d="M10.333 13.7002L14.8663 13.7002" stroke="black" stroke-opacity="0.9" stroke-linecap="round"/>
+<path d="M10.333 17.1001L13.733 17.1001" stroke="black" stroke-opacity="0.9" stroke-linecap="round"/>
+<rect x="7.5" y="6.3335" width="1.13333" height="1.13333" rx="0.566667" fill="black" fill-opacity="0.9"/>
+<rect x="7.5" y="9.7334" width="1.13333" height="1.13333" rx="0.566667" fill="black" fill-opacity="0.9"/>
+<rect x="7.5" y="13.1335" width="1.13333" height="1.13333" rx="0.566667" fill="black" fill-opacity="0.9"/>
+<rect x="7.5" y="16.5334" width="1.13333" height="1.13333" rx="0.566667" fill="black" fill-opacity="0.9"/>
+</mask>
+<g mask="url(#mask0_6181_76026)">
+<rect width="24" height="24" fill="black" fill-opacity="0.9"/>
+</g>
+</svg>
