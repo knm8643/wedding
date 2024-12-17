@@ -18,6 +18,6 @@ module.exports = defineConfig({
   },
   // 배포시 주석해주세요
   configureWebpack: {
-    devtool: 'source-map',
+    // devtool: 'source-map',
   }
 });

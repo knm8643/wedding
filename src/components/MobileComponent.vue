@@ -1,13 +1,15 @@
 <template>
-  <div>
-
-  </div>
+  <section class="mobile-wrap">
+      모바일
+  </section>
 </template>
 
 <script>
 export default {
   name: "mobileComponent",
-  data() {},
+  data() {
+    return {};
+  },
   mounted() {},
   methods: {},
 };
