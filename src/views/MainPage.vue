@@ -5,7 +5,9 @@
     <template v-else>
       <!-- 웹 환경: 둘 다 표시 -->
       <MobileComponent />
-      <WebComponent />
+      <transition name="fade">
+        <WebComponent v-if="isShowWebComponent" />
+      </transition>
     </template>
   </div>
 </template>
@@ -20,6 +22,7 @@ export default {
   data() {
     return {
       isMobile: false,
+      isShowWebComponent: false,
     };
   },
   mounted() {
@@ -36,6 +39,7 @@ export default {
 해당 사이트는 개인이 만든 서비스로 누구나 \n자유롭게 이용이 가능한 공간입니다.
 %c
 ※ 해당 사이트는 사용자 접속통계를 저장합니다.
+※ 문의 010-5696-1909 / knm8643@nate.com.
 
 %c
 Copyright (c) 충림이 All rights reserved.
@@ -45,6 +49,7 @@ Copyright (c) 충림이 All rights reserved.
 'font-size: 12px; color: #FFFFFF; font-weight: 500;',
 'font-size: 12px; color: #FFFFFF; font-style: italic;'
     );
+    this.isShowWebComponent = true; // 애니메이션 시작효과
     this.detectDevice();
   },
   methods: {
@@ -62,15 +67,37 @@ Copyright (c) 충림이 All rights reserved.
 };
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
 // 메인박스
 .main-wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 24px;
+  /* 플렉스가 좋을지 그리드가 좋을지 */
+  //display: flex;
+  //align-items: center;
+  //justify-content: center;
+  //flex-wrap: wrap;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+
+  gap: 26px;
   height: 100%;
   background-color: #F8F8F8;
 }
+// 해당 메인페이지 전용 애니메이션
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+  transform: translateY(20px);
+}
+.fade-enter-to,
+.fade-leave-from {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 </style>

@@ -1,19 +1,18 @@
 <template>
-  <section class="mobile-wrap">
-    <div
-        class="mobile-content"
-        v-for="index in 60"
-        :key="index"
-        style="font-size: 18px"
+  <div class="detail-child-wrap">
+    <div class="detail-content"
+         v-for="index in 60"
+         :key="index"
+         style="font-size: 18px"
     >
-      모바일영역테스트 {{ index }}
+      웹에디터영역테스트 {{ index }}
     </div>
-  </section>
+  </div>
 </template>
 
 <script>
 export default {
-  name: "mobileComponent",
+  name: "webDetailChild",
   data() {
     return {};
   },
@@ -23,26 +22,22 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.mobile-wrap{
+.detail-child-wrap{
   background: #ffffff;
   height: 100vh;
   overflow-x: hidden;
   overflow-y: scroll;
   padding: 12px 12px 0;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.06);
-
-  /* 플렉스로 부모에서 할경우 다시 주석해제 */
-  //flex: 1 1 auto;
-  //max-width: calc(50% - 26px);
 }
 
 // 스크롤 옵션
-.mobile-wrap::-webkit-scrollbar {
+.detail-child-wrap::-webkit-scrollbar {
   width: 0;
   background: transparent;
 }
 
-.mobile-wrap {
+.detail-child-wrap {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
