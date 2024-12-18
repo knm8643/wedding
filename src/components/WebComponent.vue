@@ -95,7 +95,7 @@ export default {
    padding: 24px 21px;
    background: #ffffff;
    margin-bottom: 16px;
-   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.06);
+   box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.06);
    max-width: 325px;
 
    .content-text{
@@ -142,6 +142,7 @@ export default {
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.06);
     }
     .content-git{
+      width: 100%;
       display: flex;
       border-radius: 6px;
       padding: 24px 21px;
