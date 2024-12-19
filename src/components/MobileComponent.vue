@@ -1,13 +1,20 @@
 <template>
   <section class="mobile-wrap">
-    <div class="mobile-content-wrap">
+    <div
+        class="mobile-content-wrap"
+        :class="mobileCheck ? 'onlyMobile' : ''"
+    >
       <div
           class="mobile-content"
-          v-for="index in 60"
+          v-for="(section, index) in sections"
           :key="index"
-          style="font-size: 18px"
       >
-        모바일영역테스트 {{ index }}
+        <div class="content-image">
+          <p>{{ section.title }}</p>
+        </div>
+        <div class="content-description">
+          {{ section.description }}
+        </div>
       </div>
     </div>
   </section>
@@ -17,16 +24,31 @@
 export default {
   name: "mobileComponent",
   data() {
-    return {};
+    return {
+    };
   },
-  mounted() {},
+  props: {
+    sections: {
+      type: Array,
+      default() {}
+    },
+    mobileCheck: {
+      type: Boolean,
+      default: false
+    }
+  },
+  mounted() {
+  },
   methods: {},
 };
 </script>
 
 <style scoped lang="scss">
 .mobile-wrap{
+  position: relative;
   .mobile-content-wrap{
+    position: absolute;
+    right: 0;
     background: #ffffff;
     height: 100vh;
     overflow-x: hidden;
@@ -34,10 +56,36 @@ export default {
     padding: 12px 12px 0;
     box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.06);
     max-width: 475px;
+    width: 100%;
+    .mobile-content {
+      margin-bottom: 16px;
 
-    /* 플렉스로 부모에서 할경우 다시 주석해제 */
-    //flex: 1 1 auto;
-    //max-width: calc(50% - 26px);
+      .content-image {
+        height: 200px;
+        background: linear-gradient(
+                to bottom,
+                rgba(0, 0, 0, 0.2),
+                rgba(0, 0, 0, 0.5)
+        );
+        color: #fff;
+        font-size: 20px;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 8px;
+      }
+      .content-description {
+        margin-top: 8px;
+        font-size: 16px;
+        color: #333;
+        text-align: center;
+      }
+    }
+  }
+  // 웹으로 들어온 경우가 아닌경우
+  .onlyMobile {
+    max-width: 100%;
   }
 }
 
