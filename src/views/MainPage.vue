@@ -69,6 +69,9 @@ Copyright (c) 충림이 All rights reserved.
     this.detectDevice();
   },
   methods: {
+    getRandomX() {
+      return Math.random() * 200 - 100; // Random value between -100 and 100
+    },
     updateSections(updatedSections) {
       this.sections = updatedSections;
     },
@@ -91,7 +94,7 @@ Copyright (c) 충림이 All rights reserved.
 .main-wrapper {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 36px;
+  gap: 46px;
   height: 100%;
   background: linear-gradient(135deg, #F9F5F6, #F4EFEF);
   background-size: 400% 400%;
@@ -109,6 +112,8 @@ Copyright (c) 충림이 All rights reserved.
     }
   }
 }
+
+
 // 해당 메인페이지 전용 애니메이션
 .fade-enter-active,
 .fade-leave-active {

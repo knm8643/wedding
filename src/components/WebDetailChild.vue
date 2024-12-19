@@ -46,7 +46,7 @@ export default {
   height: 100vh;
   overflow-x: hidden;
   overflow-y: scroll;
-  padding: 12px 12px 0;
+  padding: 12px 12px 60px 12px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.06);
   max-width: 475px;
   width: 100%;

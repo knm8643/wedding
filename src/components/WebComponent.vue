@@ -13,7 +13,7 @@
           <!--
           <i></i>
           -->
-          <p>카카오톡 문의하기</p>
+          <p>문의하기</p>
         </div>
         <div class="content-git" @click="sendGit">
           <!--
@@ -30,7 +30,7 @@
             <h3>이메일로 로그인</h3>
             <div class="login-wrap">
               <div class="input-wrap">
-                <input type="text" placeholder="이메일을 입력해주세요" />
+                <input type="text" v-model="userEmail" maxlength="50" placeholder="이메일을 입력해주세요" />
                 <button @click="checkInfo">로그인</button>
               </div>
             </div>
@@ -45,8 +45,8 @@
             <h3>이메일로 가입신청</h3>
             <div class="login-wrap">
               <div class="input-wrap">
-                <input type="text" placeholder="이메일을 입력해주세요" />
-                <button @click="checkInfo">가입신청</button>
+                <input type="text" v-model="userEmail" maxlength="50" placeholder="이메일을 입력해주세요" />
+                <button @click="sendInfo">가입신청</button>
               </div>
             </div>
             <div class="login-bottom">
@@ -68,12 +68,15 @@
 
 <script>
 import WebDetailChild from "@/components/WebDetailChild.vue";
+import emailjs from "emailjs-com";
 
 export default {
   name: "webComponent",
   components: {WebDetailChild},
   data() {
     return {
+      userInfos: [],
+      userEmail: '',
       isLogin: true,
       flagSucess: false,
     };
@@ -84,17 +87,62 @@ export default {
       default() {}
     },
   },
-  mounted() {},
+  mounted() {
+    this.userInfos = [
+      {name: 'knm8643@nate.com'},
+      {name: 'knm8643@gmail.com'},
+      {name: 'nocoolboy@naver.com'},
+    ]
+  },
   methods: {
+    vailCheck(){
+      if(this.userEmail === '') {
+        alert('이메일을 입력해주세요.');
+        return false;
+      }
+
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(this.userEmail)) {
+        alert('올바른 이메일 형식을 입력해주세요.');
+        return false;
+      }
+      return true;
+    },
+
     // 가입신청으로 화면전환
     changeTextLogin() {
       this.isLogin = !this.isLogin;
     },
 
-    // 회원정보 조회 및 등록화면 호출
     checkInfo() {
-      this.flagSucess = !this.flagSucess;
+      if (this.vailCheck()) {
+        const emailExists = this.userInfos.some(userInfo => userInfo.name === this.userEmail);
+        if (emailExists) {
+          this.flagSucess = !this.flagSucess;
+        } else {
+          alert("신청되지 않은 이메일입니다.");
+        }
+      }
     },
+
+    sendInfo() {
+      if(this.vailCheck()) {
+        emailjs.init("HsS2kuozk9ToWT7O7");
+        emailjs
+            .send("service_portfolio", "template_1mkalef", {
+              to_name: 'chungrimi.com',
+              from_name: 'chungrimi.com',
+              message: this.userEmail,
+            })
+            .then(() => {
+              alert("회원가입 신청이 성공했습니다. \n(승인까지 약 1일 내외 소요)");
+            })
+            .catch(() => {
+              alert("API 통신에러");
+            });
+      }
+    },
+
     updateSections(updatedSections) {
       this.$emit("update-sections", updatedSections);
     },
