@@ -69,9 +69,6 @@ Copyright (c) 충림이 All rights reserved.
     this.detectDevice();
   },
   methods: {
-    getRandomX() {
-      return Math.random() * 200 - 100; // Random value between -100 and 100
-    },
     updateSections(updatedSections) {
       this.sections = updatedSections;
     },
