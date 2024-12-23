@@ -29,7 +29,7 @@ export default {
       isMobile: false,
       isShowWebComponent: false,
       sections: [
-        { title: "결혼사진", description: "결혼 사진 영역입니다." },
+        { title: "결혼사진", description: "저희 결혼합니다.", imagePath: require("@/assets/img/banner/main-img-2.png")},
         { title: "인사말", description: "저희의 결혼을 축복해 주셔서 감사합니다." },
         { title: "오시는 길", description: "예식장 위치 정보입니다." },
         { title: "결혼웨딩사진", description: "웨딩 촬영 사진입니다." },

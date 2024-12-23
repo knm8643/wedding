@@ -9,15 +9,19 @@
       </div>
 
       <div class="web-content-two">
-        <div class="content-git">
+        <div class="content-box">
           <img src="../assets/img/icon/github_icon.png" alt="github">
           <div class="git-info">
             <p @click="sendUrlGit('made')">개발자 알아보기</p>
             <span @click="sendUrlGit('help')">도움준 사람</span>
           </div>
         </div>
-        <div class="content-other">
-          <p>공지사항</p>
+        <div class="content-box">
+          <img src="../assets/img/icon/kakao_icon.png" alt="kakao">
+          <div class="git-info">
+            <p>1:1 문의하기</p>
+            <span>카카오톡 문의하기</span>
+          </div>
         </div>
       </div>
 
@@ -200,7 +204,7 @@ export default {
       display: flex;
       gap: 24px;
 
-      .content-git{
+      .content-box{
         img{
           border-radius: 50%;
           width: 42px;
@@ -238,21 +242,6 @@ export default {
         justify-content: center;
         border-radius: 6px;
         padding: 24px 21px;
-        background: #ffffff;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.06);
-      }
-      .content-other{
-        p{
-          text-align: center;
-          font-weight: 700;
-          font-size: 14px;
-        }
-        width: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 6px;
-        padding: 6px 21px;
         background: #ffffff;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.06);
       }

@@ -9,7 +9,8 @@
           v-for="(section, index) in sections"
           :key="index"
       >
-        <div class="content-image">
+        <img class="content-image" :src="section.imagePath" alt="섹션 이미지" v-if="section.imagePath" />
+        <div class="content-empty-image" v-else>
           <p>{{ section.title }}</p>
         </div>
         <div class="content-description">
@@ -60,7 +61,12 @@ export default {
     .mobile-content {
       margin-bottom: 16px;
 
-      .content-image {
+      .content-image{
+        height: 100%;
+        width: 100%;
+      }
+
+      .content-empty-image {
         height: 200px;
         background: linear-gradient(
                 to bottom,
