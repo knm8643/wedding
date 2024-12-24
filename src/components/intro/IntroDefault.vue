@@ -17,7 +17,6 @@
       <p>{{ section.description[0]?.line_1 }}</p>
       <p>{{ section.description[0]?.line_2 }}</p>
       <p>{{ section.description[0]?.line_3 }}</p>
-      <p>{{ section.description[0]?.line_4 }}</p>
     </div>
 
     <div class="content-update" v-if="update" >
@@ -89,7 +88,7 @@ export default {
 
   /* 스크롤 라인 */
   .scroll-line {
-    justify-self: center;
+    margin: 0 auto;
     width: 0.6px;
     height: 0;
     background: #191c21;
@@ -113,12 +112,29 @@ export default {
   .content {
     padding: 24px 24px 0;
     p{
+      white-space: nowrap;
       color: #191c21;
       text-align: center;
       font-weight: 400;
       font-size: 16px;
       line-height: 1.8;
       margin-bottom: 6px; /* 내용 블록 아래 간격 추가 */
+    }
+  }
+
+  .content-update{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    padding-top: 16px;
+    button {
+      font-size: 18px;
+      font-weight: 500;
+    }
+    button:hover {
+      font-size: 19px;
+      font-weight: 700;
     }
   }
 

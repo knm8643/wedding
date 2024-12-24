@@ -115,7 +115,8 @@ export default {
   padding: 52px 0 64px;
 
   .content-main-font{
-    justify-self: center;
+    width: 104px;
+    margin: 0 auto;
     padding-bottom: 4px;
     border-bottom: 0.6px solid #b0b0b0;
     p{
@@ -168,6 +169,7 @@ export default {
       font-weight: 500;
       padding-bottom: 16px;
       h2{
+        font-weight: 700;
         font-size: 21px;
         color: #191c21;
       }

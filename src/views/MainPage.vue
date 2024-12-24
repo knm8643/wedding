@@ -29,7 +29,8 @@ export default {
       isMobile: false,
       isShowWebComponent: false,
       sections: [
-        { type: "bigBanner",
+        {
+          type: "bigBanner",
           title: "메인사진",
           description:
               [{
@@ -39,17 +40,32 @@ export default {
                 infoMonthDay:"2025.02.08",
                 weddingHall:"서울시 용산구 용산동1가 로얄파크컨벤션"
               }],
-          imagePath: require("@/assets/img/banner/main-img-3.png")},
-        { type: "intro" ,
+          imagePath: require("@/assets/img/banner/main-img-3.png")
+        },
+        {
+          type: "intro" ,
           title: "저희 결혼합니다",
           description: [{
-            line_1 : "저희 두 사람이 오랜 사랑과 신뢰를 바탕으로 새로운 출발을 결심하게 되었습니다.",
-            line_2 : "특별한 날, 소중한 분들과 함께 이 기쁨을 나누고자 합니다.",
-            line_3 : "바쁘신 와중에도 저희를 축복해 주시기 위해 귀한 걸음을 해 주신다면 더없이 감사하겠습니다.",
-            line_4 : "앞으로도 서로 사랑하며 함께 걸어갈 여정을 따뜻한 마음으로 지켜봐 주시길 부탁드립니다."
+            line_1: "저희 두 사람이 새로운 출발을 결심했습니다.",
+            line_2: "함께 기쁨을 나눠주신다면 감사하겠습니다.",
+            line_3: "앞으로의 여정을 따뜻히 지켜봐 주세요."
           }]
         },
-        { type: "photo", title: "사진목록", description: "웨딩 촬영 사진입니다." },
+        {
+          type: "photo", title: "사진목록",
+          description: [{
+            userInfo_1: "홍길동",
+            userInfo_2: "문익점",
+            userInfo_3: "홍경래",
+            userInfo_4: "김두환",
+            userInfo_5: "유디딥",
+            userInfo_6: "충디딥",
+          }],
+          imagePath: [
+            require("@/assets/img/banner/main-img-1.png"),
+            require("@/assets/img/banner/main-img-4.png"),
+          ]
+        },
         { type: "map", title: "지도", description: "예식장 주변 지도입니다." },
         { type: "address", title: "오시는 길", description: "예식장 위치 정보입니다." },
         { type: "giftMoney", title: "축의금", description: "축의금 계좌 정보입니다." },

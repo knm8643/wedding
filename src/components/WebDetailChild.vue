@@ -25,8 +25,18 @@
         />
       </div>
 
+      <!-- 사진리스트 -->
+      <div v-if="section.type === 'photo'">
+        <photoDefault
+            :section="section"
+            :update="true"
+            :index="index"
+            @edit-section="editSection"
+        />
+      </div>
+
       <!-- 디폴트 영역확인용:추후제거 -->
-      <div v-else-if="!['bigBanner','intro'].includes(section.type)">
+      <div v-else-if="!['bigBanner','intro','photo'].includes(section.type)">
         <img class="content-image" :src="section.imagePath" alt="섹션 이미지" v-if="section.imagePath" />
         <div class="content-empty-image" v-else>
           <p>{{ section.title }}</p>
@@ -42,10 +52,11 @@
 <script>
 import BigBannerDefault from "@/components/bigBanner/BigBannerDefault.vue";
 import IntroDefault from "@/components/intro/IntroDefault.vue";
+import PhotoDefault from "@/components/photo/PhotoDefault.vue";
 
 export default {
   name: "webDetailChild",
-  components: {IntroDefault, BigBannerDefault},
+  components: {PhotoDefault, IntroDefault, BigBannerDefault},
   data() {
     return {
 
