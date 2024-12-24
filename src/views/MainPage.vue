@@ -29,13 +29,31 @@ export default {
       isMobile: false,
       isShowWebComponent: false,
       sections: [
-        { title: "결혼사진", description: "저희 결혼합니다.", imagePath: require("@/assets/img/banner/main-img-2.png")},
-        { title: "인사말", description: "저희의 결혼을 축복해 주셔서 감사합니다." },
-        { title: "오시는 길", description: "예식장 위치 정보입니다." },
-        { title: "결혼웨딩사진", description: "웨딩 촬영 사진입니다." },
-        { title: "지도", description: "예식장 주변 지도입니다." },
-        { title: "돈입금할장소", description: "축의금 계좌 정보입니다." },
-        { title: "결혼하는 사람들에게 전하고 싶은 말", description: "축복의 메시지를 남겨주세요." }
+        { type: "bigBanner",
+          title: "메인사진",
+          description:
+              [{
+                userName_1:"충디딥",
+                userName_2:"유디딥",
+                infoDate:"2025.02.08 토요일 13시",
+                infoMonthDay:"2025.02.08",
+                weddingHall:"서울시 용산구 용산동1가 로얄파크컨벤션"
+              }],
+          imagePath: require("@/assets/img/banner/main-img-3.png")},
+        { type: "intro" ,
+          title: "저희 결혼합니다",
+          description: [{
+            line_1 : "저희 두 사람이 오랜 사랑과 신뢰를 바탕으로 새로운 출발을 결심하게 되었습니다.",
+            line_2 : "특별한 날, 소중한 분들과 함께 이 기쁨을 나누고자 합니다.",
+            line_3 : "바쁘신 와중에도 저희를 축복해 주시기 위해 귀한 걸음을 해 주신다면 더없이 감사하겠습니다.",
+            line_4 : "앞으로도 서로 사랑하며 함께 걸어갈 여정을 따뜻한 마음으로 지켜봐 주시길 부탁드립니다."
+          }]
+        },
+        { type: "photo", title: "사진목록", description: "웨딩 촬영 사진입니다." },
+        { type: "map", title: "지도", description: "예식장 주변 지도입니다." },
+        { type: "address", title: "오시는 길", description: "예식장 위치 정보입니다." },
+        { type: "giftMoney", title: "축의금", description: "축의금 계좌 정보입니다." },
+        { type: "letter", title: "편지", description: "축복의 메시지를 남겨주세요." }
       ]
     };
   },

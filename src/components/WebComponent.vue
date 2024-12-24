@@ -123,6 +123,7 @@ export default {
 
     // 가입신청으로 화면전환
     changeTextLogin() {
+      this.userEmail = '';
       this.isLogin = !this.isLogin;
     },
 
@@ -180,7 +181,7 @@ export default {
       border-radius: 6px;
       padding: 24px 21px;
       background: #ffffff;
-      margin-bottom: 24px;
+      margin-bottom: 18px;
       box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.06);
 
       .content-text{
@@ -200,7 +201,7 @@ export default {
 
     // 두개짜리 컨텐츠 박스
     .web-content-two{
-      margin-bottom: 24px;
+      margin-bottom: 18px;
       display: flex;
       gap: 24px;
 

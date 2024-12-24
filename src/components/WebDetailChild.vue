@@ -1,23 +1,51 @@
 <template>
   <div class="detail-child-wrap">
+    <!-- 디폴트 영역확인용:추후제거 -->
     <div class="detail-content"
          v-for="(section, index) in sections"
          :key="index"
     >
-      <img class="content-image" :src="section.imagePath" alt="섹션 이미지" v-if="section.imagePath" />
-      <div class="content-empty-image" v-else>
-        <p>{{ section.title }}</p>
+      <!-- 빅배너 -->
+      <div v-if="section.type === 'bigBanner'">
+        <BigBannerDefault
+            :section="section"
+            :update="true"
+            :index="index"
+            @edit-section="editSection"
+        />
       </div>
-      <div class="content-description">
-        {{ section.description }} <button @click="editSection(index)">(수정)</button>
+
+      <!-- 인사말 -->
+      <div v-if="section.type === 'intro'">
+        <introDefault
+            :section="section"
+            :update="true"
+            :index="index"
+            @edit-section="editSection"
+        />
+      </div>
+
+      <!-- 디폴트 영역확인용:추후제거 -->
+      <div v-else-if="!['bigBanner','intro'].includes(section.type)">
+        <img class="content-image" :src="section.imagePath" alt="섹션 이미지" v-if="section.imagePath" />
+        <div class="content-empty-image" v-else>
+          <p>{{ section.title }}</p>
+        </div>
+        <div class="content-description">
+          {{ section.description }} <button @click="editSection(index)">(수정)</button>
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import BigBannerDefault from "@/components/bigBanner/BigBannerDefault.vue";
+import IntroDefault from "@/components/intro/IntroDefault.vue";
+
 export default {
   name: "webDetailChild",
+  components: {IntroDefault, BigBannerDefault},
   data() {
     return {
 
@@ -31,10 +59,9 @@ export default {
   },
   mounted() {},
   methods: {
-    editSection(index) {
+    editSection(index, params) {
       const updatedSections = [...this.sections];
-      updatedSections[index].description = "수정된 내용입니다!";
-
+      updatedSections[index] = params;
       this.$emit("update-sections", updatedSections);
     },
   },
@@ -47,7 +74,7 @@ export default {
   height: 100vh;
   overflow-x: hidden;
   overflow-y: scroll;
-  padding: 12px 12px 60px 12px;
+  padding: 24px 0 24px 0;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.06);
   max-width: 475px;
   width: 100%;
