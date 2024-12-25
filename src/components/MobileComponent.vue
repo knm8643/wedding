@@ -34,7 +34,16 @@
           />
         </div>
 
+        <!-- 달력 -->
+        <div v-if="section.type === 'calender'">
+          <calenderDefault
+            :section="section"
+            :update="false"
+          />
+        </div>
+
         <!-- 디폴트 영역확인용:추후제거 -->
+        <!--
         <div v-else-if="!['bigBanner','intro','photo'].includes(section.type)">
           <img class="content-image" :src="section.imagePath" alt="섹션 이미지" v-if="section.imagePath" />
           <div class="content-empty-image" v-else>
@@ -44,6 +53,7 @@
             {{ section.description }}
           </div>
         </div>
+        -->
       </div>
     </div>
   </section>
@@ -53,10 +63,11 @@
 import BigBannerDefault from "@/components/bigBanner/BigBannerDefault.vue";
 import IntroDefault from "@/components/intro/IntroDefault.vue";
 import PhotoDefault from "@/components/photo/PhotoDefault.vue";
+import CalenderDefault from "@/components/calender/CalenderDefault.vue";
 
 export default {
   name: "mobileComponent",
-  components: {PhotoDefault, IntroDefault, BigBannerDefault},
+  components: {CalenderDefault, PhotoDefault, IntroDefault, BigBannerDefault},
   data() {
     return {
     };

@@ -56,16 +56,17 @@ export default {
           description: [{
             userInfo_1: "홍길동",
             userInfo_2: "문익점",
-            userInfo_3: "홍경래",
+            userInfo_3: "충디딥",
             userInfo_4: "김두환",
             userInfo_5: "유디딥",
             userInfo_6: "충디딥",
           }],
           imagePath: [
-            require("@/assets/img/banner/main-img-1.png"),
             require("@/assets/img/banner/main-img-4.png"),
+            require("@/assets/img/banner/main-img-1.png"),
           ]
         },
+        { type: "calender", title: "달력", days: "2025.02.08 13:00" },
         { type: "map", title: "지도", description: "예식장 주변 지도입니다." },
         { type: "address", title: "오시는 길", description: "예식장 위치 정보입니다." },
         { type: "giftMoney", title: "축의금", description: "축의금 계좌 정보입니다." },

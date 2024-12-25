@@ -1,22 +1,13 @@
 <template>
   <div
-      class="intro-wrap"
+      class="calender-wrap"
       :class="{ 'animate-visible': isVisible }"
-      ref="intro"
+      ref="calender"
   >
 
     <div class="scroll-line" :class="{ 'line-visible': isVisible }"></div>
 
-    <!-- 타이틀 제목 -->
-    <div class="content-title">
-      {{section.title}}
-    </div>
-
-    <!-- 내용 -->
-    <div class="content">
-      <p>{{ section.description[0]?.line_1 }}</p>
-      <p>{{ section.description[0]?.line_2 }}</p>
-      <p>{{ section.description[0]?.line_3 }}</p>
+    <div class="calender-main-wrap">
     </div>
 
     <div class="content-update" v-if="update" >
@@ -29,7 +20,7 @@
 
 <script>
 export default {
-  name: "introDefault",
+  name: "calenderDefault",
   data() {
     return {
       isVisible: false, // 애니메이션 트리거
@@ -61,7 +52,7 @@ export default {
         { threshold: 0.1 } // 10%가 보이면 트리거
     );
 
-    observer.observe(this.$refs.intro);
+    observer.observe(this.$refs.calender);
   },
 
   methods: {
@@ -77,12 +68,13 @@ export default {
 </script>
 <style scoped>
 /* 애니메이션 */
-.intro-wrap {
+.calender-wrap {
   opacity: 0;
   transform: translateY(30px);
   transition: opacity 1.5s ease, transform 1.5s ease;
   justify-self: center;
-  padding-bottom: 32px;
+  padding: 32px 0;
+  width: 100%;
 
   /* 스크롤 라인 */
   .scroll-line {
@@ -98,26 +90,11 @@ export default {
     height: 52px;
   }
 
-  .content-title{
-    color: #191c21;
-    font-weight: 700;
-    font-size: 21px;
-    text-align: center;
-    padding-top: 32px;
-  }
-
-  /* 컨텐츠 영역 */
-  .content {
-    padding: 24px 24px 0;
-    p{
-      white-space: nowrap;
-      color: #191c21;
-      text-align: center;
-      font-weight: 400;
-      font-size: 16px;
-      line-height: 1.8;
-      margin-bottom: 6px; /* 내용 블록 아래 간격 추가 */
-    }
+  .calender-main-wrap {
+    margin: 24px;
+    border-radius: 4px;
+    border: 0.6px solid #b0b0b0;
+    height: 200px;
   }
 
   .content-update{
@@ -138,7 +115,7 @@ export default {
 
 }
 
-.intro-wrap.animate-visible {
+.calender-wrap.animate-visible {
   opacity: 1;
   transform: translateY(0);
 }
