@@ -6,14 +6,11 @@
   >
     <div class="swiper-container">
       <swiper
-          :pagination="{
-            clickable: true,
-            type: 'bullets'
-          }"
-          loop
-          :autoplay="{ delay: 3000, disableOnInteraction: false, pauseOnMouseEnter: false }"
           space-between="10"
           slides-per-view="1"
+          :loop="true"
+          :autoplay="{ delay: 3000, disableOnInteraction: false }"
+          :pagination="{ clickable: true }"
       >
         <swiper-slide v-for="(image, index) in section.imagePath" :key="index">
           <img :src="image" alt="웨딩 사진" class="photo-image" />
@@ -42,7 +39,6 @@
 
 <script>
 import { Swiper, SwiperSlide } from "swiper/vue";
-import { Autoplay, Pagination } from "swiper"; // Autoplay 모듈 추가
 import "swiper/swiper-bundle.css";
 
 
@@ -57,11 +53,6 @@ export default {
       isVisible: false, // 애니메이션 트리거
       isEditing: false,
       editedSection: {}, // 수정된 데이터
-    };
-  },
-  setup() {
-    return {
-      modules: [Autoplay, Pagination], // 모듈 등록
     };
   },
   props: {
@@ -111,7 +102,7 @@ export default {
   .swiper-container {
     width: 100%;
     height: auto;
-    margin: 16px auto 24px;
+    margin: 16px auto 36px;
 
     .photo-image {
       aspect-ratio: 16 / 9;
@@ -174,4 +165,26 @@ input:hover{
   border: 0.6px solid #b0b0b0;
 }
 
+/* 스와이퍼 */
+::v-deep(.swiper-pagination) {
+  display: block !important;
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+  text-align: center;
+  z-index: 10;
+}
+
+::v-deep(.swiper-pagination-bullet) {
+  width: 10px;
+  height: 10px;
+  background: #fff;
+  opacity: 0.7;
+  margin: 0 5px;
+}
+
+::v-deep(.swiper-pagination-bullet-active) {
+  background: #007bff; /* 활성화된 버튼 색상 */
+  opacity: 1;
+}
 </style>

@@ -7,7 +7,15 @@
 
     <div class="scroll-line" :class="{ 'line-visible': isVisible }"></div>
 
+    <div class="calender-main-font">
+      <p>{{ section.daysfont }}</p>
+      <span>{{ section.time }} 예식이 시작됩니다.</span>
+    </div>
+
     <div class="calender-main-wrap">
+      <calenderTemplate
+        :days="section.days"
+      />
     </div>
 
     <div class="content-update" v-if="update" >
@@ -19,8 +27,11 @@
 </template>
 
 <script>
+import CalenderTemplate from "@/components/calender/CalenderTemplate.vue";
+
 export default {
   name: "calenderDefault",
+  components: {CalenderTemplate},
   data() {
     return {
       isVisible: false, // 애니메이션 트리거
@@ -90,11 +101,28 @@ export default {
     height: 52px;
   }
 
+  .calender-main-font{
+    text-align: center;
+    padding: 42px 0 24px;
+    font-size: 18px;
+    font-weight: 400;
+    span{
+      color: #6a6a6a;
+    }
+
+    p{
+      padding-bottom: 4px;
+      color:  #191c21;
+      font-weight: 500;
+    }
+  }
+
   .calender-main-wrap {
     margin: 24px;
+    padding-bottom: 12px;
     border-radius: 4px;
-    border: 0.6px solid #b0b0b0;
-    height: 200px;
+    border-top: 0.6px solid #b0b0b0;
+    border-bottom: 0.6px solid #b0b0b0;
   }
 
   .content-update{

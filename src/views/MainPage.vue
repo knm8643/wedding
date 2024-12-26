@@ -66,7 +66,13 @@ export default {
             require("@/assets/img/banner/main-img-1.png"),
           ]
         },
-        { type: "calender", title: "달력", days: "2025.02.08 13:00" },
+        {
+          type: "calender",
+          title: "달력",
+          daysfont: "2025년 02월 08일 토요일",
+          days: "2025.02.08",
+          time: '오후 01시 30분'
+        },
         { type: "map", title: "지도", description: "예식장 주변 지도입니다." },
         { type: "address", title: "오시는 길", description: "예식장 위치 정보입니다." },
         { type: "giftMoney", title: "축의금", description: "축의금 계좌 정보입니다." },
