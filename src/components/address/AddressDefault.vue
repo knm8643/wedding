@@ -121,7 +121,7 @@ export default {
   transform: translateY(30px);
   transition: opacity 1.5s ease, transform 1.5s ease;
   justify-self: center;
-  padding: 0 0 32px;
+  padding: 0 0 42px;
   width: 100%;
 
   .address-main-font{
