@@ -2,7 +2,7 @@
   <div class="detail-child-wrap">
     <!-- 디폴트 영역확인용:추후제거 -->
     <div class="detail-content"
-         v-for="(section, index) in sections"
+         v-for="(section, index) in filteredSections"
          :key="index"
     >
       <!-- 빅배너 -->
@@ -44,21 +44,16 @@
             @edit-section="editSection"
         />
       </div>
-      <!-- 달력 -->
 
-
-      <!-- 디폴트 영역확인용:추후제거 -->
-      <!--
-      <div v-else-if="!['bigBanner','intro','photo'].includes(section.type)">
-        <img class="content-image" :src="section.imagePath" alt="섹션 이미지" v-if="section.imagePath" />
-        <div class="content-empty-image" v-else>
-          <p>{{ section.title }}</p>
-        </div>
-        <div class="content-description">
-          {{ section.description }} <button @click="editSection(index)">(수정)</button>
-        </div>
+      <!-- 오시는길 -->
+      <div v-if="section.type === 'address'">
+        <addressDefault
+            :section="section"
+            :update="true"
+            :index="index"
+            @edit-section="editSection"
+        />
       </div>
-      -->
     </div>
   </div>
 </template>
@@ -68,10 +63,11 @@ import BigBannerDefault from "@/components/bigBanner/BigBannerDefault.vue";
 import IntroDefault from "@/components/intro/IntroDefault.vue";
 import PhotoDefault from "@/components/photo/PhotoDefault.vue";
 import CalenderDefault from "@/components/calender/CalenderDefault.vue";
+import AddressDefault from "@/components/address/AddressDefault.vue";
 
 export default {
   name: "webDetailChild",
-  components: {CalenderDefault, PhotoDefault, IntroDefault, BigBannerDefault},
+  components: {AddressDefault, CalenderDefault, PhotoDefault, IntroDefault, BigBannerDefault},
   data() {
     return {
 
@@ -83,7 +79,15 @@ export default {
       default() {}
     },
   },
-  mounted() {},
+  computed: {
+    filteredSections() {
+      return this.sections.filter(section => {
+        return ['bigBanner', 'intro', 'photo', 'calender','address'].includes(section.type);
+      });
+    }
+  },
+  mounted() {
+  },
   methods: {
     editSection(index, params) {
       const updatedSections = [...this.sections];
@@ -96,7 +100,7 @@ export default {
 
 <style scoped lang="scss">
 .detail-child-wrap{
-  background: #ffffff;
+  background: rgba(255, 255, 255, 0.8); /* 흰색 반투명 */
   height: 100vh;
   overflow-x: hidden;
   overflow-y: scroll;

@@ -19,4 +19,7 @@ module.exports = {
     "prettier/prettier": "off",
     "@typescript-eslint/no-empty-function": "off",
   },
+  "globals": {
+    "kakao": "readonly"
+  }
 };

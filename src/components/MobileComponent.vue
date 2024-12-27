@@ -6,7 +6,7 @@
     >
 
       <div class="mobile-content"
-           v-for="(section, index) in sections"
+           v-for="(section, index) in filteredSections"
            :key="index"
       >
 
@@ -88,6 +88,13 @@ export default {
     return {
     };
   },
+  computed: {
+    filteredSections() {
+      return this.sections.filter(section => {
+        return ['bigBanner', 'intro', 'photo', 'calender','address'].includes(section.type);
+      });
+    }
+  },
   props: {
     sections: {
       type: Array,
@@ -99,18 +106,53 @@ export default {
     }
   },
   mounted() {
+    this.addSnowEffect();
   },
-  methods: {},
+  methods: {
+    addSnowEffect() {
+      // mobile-content-wrap 요소 선택
+      const snowContainer = document.querySelector('.mobile-wrap');
+
+      // snow를 추가할 갯수 설정
+      const snowCount = 90;
+
+      // 눈 생성
+      for (let i = 0; i < snowCount; i++) {
+        const snowElement = document.createElement('div');
+        snowElement.classList.add('snow');  // 눈에 대한 CSS 클래스 추가
+        snowContainer.appendChild(snowElement);
+      }
+      // 생성된 눈에 랜덤 색 적용
+      var snowElements = document.getElementsByClassName('snow');
+      for (var j = 0; j < snowElements.length; j++) {
+        var snowElement2 = snowElements[j];
+        snowElement2.style.setProperty('--snow-color', getRandomColor());
+      }
+
+      function getRandomColor() {
+        var letters = '0123456789ABCDEF';
+        var color = '#';
+        for (var i = 0; i < 6; i++) {
+          color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+      }
+    },
+  }
 };
 </script>
 
 <style scoped lang="scss">
 .mobile-wrap{
   position: relative;
+  overflow: hidden;
   .mobile-content-wrap{
     position: absolute;
     right: 0;
-    background: #ffffff;
+    //background: linear-gradient(to bottom, #FFFBF0, #fff); /* 연한 크림색 계열 */
+    background: rgba(255, 255, 255, 0.8); /* 흰색 반투명 */
+
+
     height: 100vh;
     overflow-x: hidden;
     overflow-y: scroll;

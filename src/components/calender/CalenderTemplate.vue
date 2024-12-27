@@ -10,7 +10,7 @@
     <!-- 요일 헤더 -->
     <div class="calendar-grid">
       <div v-for="day in daysOfWeek" :key="day" class="calendar-day header"
-      :style="day === '일' ? 'color:red;' : ''">
+      :style="day === '일' ? 'color:red;!important' : ''">
         {{ day }}
       </div>
 

@@ -28,55 +28,7 @@ export default {
     return {
       isMobile: false,
       isShowWebComponent: false,
-      sections: [
-        {
-          type: "bigBanner",
-          title: "메인사진",
-          description:
-              [{
-                userName_1:"충디딥",
-                userName_2:"유디딥",
-                infoDate:"2025.02.08 토요일 13시",
-                infoMonthDay:"2025.02.08",
-                weddingHall:"서울시 용산구 용산동1가 로얄파크컨벤션"
-              }],
-          imagePath: require("@/assets/img/banner/main-img-3.png")
-        },
-        {
-          type: "intro" ,
-          title: "저희 결혼합니다",
-          description: [{
-            line_1: "저희 두 사람이 새로운 출발을 결심했습니다.",
-            line_2: "함께 기쁨을 나눠주신다면 감사하겠습니다.",
-            line_3: "앞으로의 여정을 따뜻히 지켜봐 주세요."
-          }]
-        },
-        {
-          type: "photo", title: "사진목록",
-          description: [{
-            userInfo_1: "홍길동",
-            userInfo_2: "문익점",
-            userInfo_3: "충디딥",
-            userInfo_4: "김두환",
-            userInfo_5: "유디딥",
-            userInfo_6: "충디딥",
-          }],
-          imagePath: [
-            require("@/assets/img/banner/main-img-4.png"),
-            require("@/assets/img/banner/main-img-1.png"),
-          ]
-        },
-        {
-          type: "calender",
-          title: "달력",
-          daysfont: "2025년 02월 08일 토요일",
-          days: "2025.02.08",
-          time: '오후 01시 30분'
-        },
-        { type: "address", title: "오시는 길", description: "예식장 위치 정보입니다." },
-        { type: "giftMoney", title: "축의금", description: "축의금 계좌 정보입니다." },
-        { type: "letter", title: "편지", description: "축복의 메시지를 남겨주세요." }
-      ]
+      sections: []
     };
   },
 
@@ -107,6 +59,7 @@ Copyright (c) 충림이 All rights reserved.
     );
     this.isShowWebComponent = true; // 애니메이션 시작효과
     this.detectDevice();
+    this.loadSections();
   },
   methods: {
     updateSections(updatedSections) {
@@ -122,6 +75,16 @@ Copyright (c) 충림이 All rights reserved.
         this.isMobile = false; // 웹 환경
       }
     },
+
+    async loadSections() {
+      try {
+        const response = await fetch('/assets/json/knm8643.json');
+        const data = await response.json();
+        this.sections = data.sections;
+      } catch (error) {
+        console.error('JSON 데이터를 불러오는 중 에러가 발생했습니다:', error);
+      }
+    }
   },
 };
 </script>

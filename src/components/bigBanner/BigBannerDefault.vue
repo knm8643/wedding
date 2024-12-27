@@ -123,6 +123,7 @@ export default {
       color: #191c21;
       font-weight: 400;
       font-size: 21px;
+      white-space: nowrap;
     }
   }
 
