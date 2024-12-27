@@ -27,10 +27,11 @@ body {
   $total: 90;
   position: absolute;
   top:-10px;
-  width: 8px;
-  height: 8px;
+  width: 7px;
+  height: 7px;
   background: var(--snow-color);
   border-radius: 50%;
+  filter: drop-shadow(0 0 1.6px var(--snow-color));
 
   @for $i from 1 through $total {
     $random-x: random(1000000) * 0.0001vw;
