@@ -42,6 +42,14 @@
           />
         </div>
 
+        <!-- 오시는길 -->
+        <div v-if="section.type === 'address'">
+          <addressDefault
+            :section="section"
+            :update="false"
+          />
+        </div>
+
         <!-- 디폴트 영역확인용:추후제거 -->
         <!--
         <div v-else-if="!['bigBanner','intro','photo'].includes(section.type)">
@@ -64,10 +72,18 @@ import BigBannerDefault from "@/components/bigBanner/BigBannerDefault.vue";
 import IntroDefault from "@/components/intro/IntroDefault.vue";
 import PhotoDefault from "@/components/photo/PhotoDefault.vue";
 import CalenderDefault from "@/components/calender/CalenderDefault.vue";
+import AddressDefault from "@/components/address/AddressDefault.vue";
 
 export default {
   name: "mobileComponent",
-  components: {CalenderDefault, PhotoDefault, IntroDefault, BigBannerDefault},
+  components:
+      {
+        CalenderDefault,
+        PhotoDefault,
+        IntroDefault,
+        BigBannerDefault,
+        AddressDefault
+      },
   data() {
     return {
     };

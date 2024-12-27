@@ -73,7 +73,6 @@ export default {
           days: "2025.02.08",
           time: '오후 01시 30분'
         },
-        { type: "map", title: "지도", description: "예식장 주변 지도입니다." },
         { type: "address", title: "오시는 길", description: "예식장 위치 정보입니다." },
         { type: "giftMoney", title: "축의금", description: "축의금 계좌 정보입니다." },
         { type: "letter", title: "편지", description: "축복의 메시지를 남겨주세요." }
