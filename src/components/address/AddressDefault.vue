@@ -13,6 +13,9 @@
       <div id="map" ref="map" style="width: 100%; height: 300px;"></div>
     </div>
 
+    <!-- 내비게이션 버튼을 마크업에서 미리 정의 -->
+    <button @click="startNavigation">내비게이션 시작</button>
+
     <div class="content-update" v-if="update" >
       <button @click="toggleEdit">
         {{ isEditing ? "저장하기" : "수정하기" }}
@@ -32,6 +35,8 @@ export default {
       editedSection: {}, // 수정된 데이터
       map: null, // 카카오맵 객체
       geocoder: null, // Geocoder 객체
+      latitude: '',
+      longitude: '',
     };
   },
   props: {
@@ -63,6 +68,24 @@ export default {
   },
 
   methods: {
+    // 내비게이션 실행
+    startNavigation() {
+      const lat = this.latitude;  // 목적지 위도
+      const lng = this.longitude; // 목적지 경도
+      const name = this.section.description;    // 목적지 이름 (옵션)
+
+      // 모바일 기기에서만 내비게이션 호출
+      if (/Mobi|Android|iPhone/i.test(navigator.userAgent)) {
+        const kakaoNaviUrl = `kakaonavi://navigate?lat=${lat}&lon=${lng}&name=${encodeURIComponent(name)}`;
+        window.location.href = kakaoNaviUrl;
+      } else {
+        alert('모바일 기기에서만 내비게이션을 사용할 수 있습니다.');
+        // setTimeout(() => {
+        //   window.location.href = `https://www.google.com/maps?q=${lat},${lng}`;
+        // }, 1500); // 1.5초 후 구글 맵으로 대체
+      }
+    },
+
     toggleEdit() {
       if (this.isEditing) {
         // 저장 버튼 클릭 시 부모로 변경된 데이터 전달
@@ -75,7 +98,7 @@ export default {
       var mapContainer = document.getElementById('map'), // 지도를 표시할 div
           mapOption = {
             center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
-            level: 3 // 지도의 확대 레벨
+            level: 4 // 지도의 확대 레벨
           };
 
       // 지도를 생성합니다
@@ -94,6 +117,9 @@ export default {
 
           var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
 
+          this.latitude = coords.getLat();  // 위도
+          this.longitude = coords.getLng(); // 경도
+
           // 결과값으로 받은 위치를 마커로 표시합니다
           var marker = new kakao.maps.Marker({
             map: map,
@@ -109,7 +135,7 @@ export default {
           // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
           map.setCenter(coords);
         }
-      });
+      }.bind(this));
     },
   },
 };

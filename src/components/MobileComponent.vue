@@ -49,19 +49,6 @@
             :update="false"
           />
         </div>
-
-        <!-- 디폴트 영역확인용:추후제거 -->
-        <!--
-        <div v-else-if="!['bigBanner','intro','photo'].includes(section.type)">
-          <img class="content-image" :src="section.imagePath" alt="섹션 이미지" v-if="section.imagePath" />
-          <div class="content-empty-image" v-else>
-            <p>{{ section.title }}</p>
-          </div>
-          <div class="content-description">
-            {{ section.description }}
-          </div>
-        </div>
-        -->
       </div>
     </div>
   </section>
@@ -114,7 +101,7 @@ export default {
       const snowContainer = document.querySelector('.mobile-wrap');
 
       // snow를 추가할 갯수 설정
-      const snowCount = 90;
+      const snowCount = 100;
 
       // 눈 생성
       for (let i = 0; i < snowCount; i++) {

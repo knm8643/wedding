@@ -121,7 +121,7 @@ export default {
     border-bottom: 0.6px solid #b0b0b0;
     p{
       color: #191c21;
-      font-weight: 400;
+      font-weight: 500;
       font-size: 21px;
       white-space: nowrap;
     }
