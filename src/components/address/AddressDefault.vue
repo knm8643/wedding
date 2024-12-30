@@ -76,22 +76,36 @@ export default {
       const lng = this.longitude; // 목적지 경도
       const name = this.section.description;    // 목적지 이름 (옵션)
 
-      const kakaoNaviUrl = `kakaonavi://navigate?lat=${lat}&lon=${lng}&name=${encodeURIComponent(name)}`;
-      const fallbackUrl = `https://play.google.com/store/apps/details?id=com.kakao.taxi`; // 카카오내비 앱 다운로드 페이지
+      // const kakaoNaviUrl = `kakaonavi://navigate?lat=${lat}&lon=${lng}&name=${encodeURIComponent(name)}`;
+      // const fallbackUrl = `https://play.google.com/store/apps/details?id=com.kakao.taxi`; // 카카오내비 앱 다운로드 페이지
+      //
+      // if (/Mobi|Android|iPhone/i.test(navigator.userAgent)) {
+      //   setTimeout(() => {
+      //     // 앱이 열리지 않으면 구글 플레이 스토어로 이동
+      //     window.location.href = kakaoNaviUrl;
+      //
+      //     // 1초 후, 앱이 열리지 않으면 구글 플레이로 리디렉션
+      //     setTimeout(() => {
+      //       window.location.href = fallbackUrl;
+      //     }, 1000);
+      //   }, 500);
+      // } else {
+      //   alert('모바일 기기에서만 내비게이션을 사용할 수 있습니다.');
+      // }
 
-      if (/Mobi|Android|iPhone/i.test(navigator.userAgent)) {
-        setTimeout(() => {
-          // 앱이 열리지 않으면 구글 플레이 스토어로 이동
-          window.location.href = kakaoNaviUrl;
-
-          // 1초 후, 앱이 열리지 않으면 구글 플레이로 리디렉션
-          setTimeout(() => {
-            window.location.href = fallbackUrl;
-          }, 1000);
-        }, 500);
+      // 카카오 SDK가 로드되었는지 확인
+      if (typeof window.Kakao !== 'undefined' && window.Kakao.Navi) {
+        // 카카오 내비게이션 호출
+        window.Kakao.Navi.start({
+          name: name,            // 목적지 이름
+          x: lng,                // 경도
+          y: lat,                // 위도
+          coordType: 'wgs84',    // 좌표 시스템 (WGS84)
+        });
       } else {
-        alert('모바일 기기에서만 내비게이션을 사용할 수 있습니다.');
+        alert('카카오 내비 SDK가 로드되지 않았습니다.');
       }
+
     },
 
     toggleEdit() {
