@@ -14,7 +14,9 @@
     </div>
 
     <!-- 내비게이션 버튼을 마크업에서 미리 정의 -->
-    <button @click="startNavigation">내비게이션 시작</button>
+    <div class="address-nav-wrap">
+      <button @click="startNavigation">카카오 내비게이션 테스트중</button>
+    </div>
 
     <div class="content-update" v-if="update" >
       <button @click="toggleEdit">
@@ -70,13 +72,18 @@ export default {
   methods: {
     // 내비게이션 실행
     startNavigation() {
-      const lat = this.latitude;  // 목적지 위도
-      const lng = this.longitude; // 목적지 경도
-      const name = this.section.description;    // 목적지 이름 (옵션)
+      // const lat = this.latitude;  // 목적지 위도
+      // const lng = this.longitude; // 목적지 경도
+      // const name = this.section.description;    // 목적지 이름 (옵션)
+
+      // const kakaoNaviUrl = `kakaonavi://navigate?lat=${lat}&lon=${lng}&name=${encodeURIComponent(name)}`;
+      const kakaoNaviUrl = 'kakaonavi://navigate?lat=37.5363183673747&lon=126.977114499758&name=서울특별시 용산구 용산동 1가 8번지';
+      console.log(kakaoNaviUrl);  // 디버깅을 위한 URL 확인
+
 
       // 모바일 기기에서만 내비게이션 호출
       if (/Mobi|Android|iPhone/i.test(navigator.userAgent)) {
-        const kakaoNaviUrl = `kakaonavi://navigate?lat=${lat}&lon=${lng}&name=${encodeURIComponent(name)}`;
+
         window.location.href = kakaoNaviUrl;
       } else {
         alert('모바일 기기에서만 내비게이션을 사용할 수 있습니다.');
@@ -164,6 +171,11 @@ export default {
       color:  #191c21;
       font-weight: 500;
     }
+  }
+
+  .address-nav-wrap{
+    text-align: center;
+    padding: 24px;
   }
 
   .content-update{
