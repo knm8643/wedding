@@ -4,9 +4,11 @@
       :class="{ 'animate-visible': isVisible }"
       ref="address"
   >
+
     <div class="address-main-font">
       <p>{{ section.title }}</p>
-      <span>{{ section.description }}</span>
+      <span>{{ section.description }}</span><br/>
+      <span>{{section.mainInfo}}</span>
     </div>
 
     <div class="address-map">
@@ -15,7 +17,13 @@
 
     <!-- 내비게이션 버튼을 마크업에서 미리 정의 -->
     <div class="address-nav-wrap">
-      <button @click="startNavigation">카카오 내비게이션 테스트중</button>
+      <div class="kakao-wrap">
+        <a id="start-navigation" @click="startNavigation">
+          <img src="https://developers.kakao.com/assets/img/about/buttons/navi/kakaonavi_btn_medium.png"
+               alt="길 안내하기 버튼" />
+        </a>
+        <button @click="startNavigation">내비게이션 안내하기</button>
+      </div>
     </div>
 
     <div class="content-update" v-if="update" >
@@ -76,36 +84,22 @@ export default {
       const lng = this.longitude; // 목적지 경도
       const name = this.section.description;    // 목적지 이름 (옵션)
 
-      // const kakaoNaviUrl = `kakaonavi://navigate?lat=${lat}&lon=${lng}&name=${encodeURIComponent(name)}`;
-      // const fallbackUrl = `https://play.google.com/store/apps/details?id=com.kakao.taxi`; // 카카오내비 앱 다운로드 페이지
-      //
-      // if (/Mobi|Android|iPhone/i.test(navigator.userAgent)) {
-      //   setTimeout(() => {
-      //     // 앱이 열리지 않으면 구글 플레이 스토어로 이동
-      //     window.location.href = kakaoNaviUrl;
-      //
-      //     // 1초 후, 앱이 열리지 않으면 구글 플레이로 리디렉션
-      //     setTimeout(() => {
-      //       window.location.href = fallbackUrl;
-      //     }, 1000);
-      //   }, 500);
-      // } else {
-      //   alert('모바일 기기에서만 내비게이션을 사용할 수 있습니다.');
-      // }
-
-      // 카카오 SDK가 로드되었는지 확인
-      if (typeof window.Kakao !== 'undefined' && window.Kakao.Navi) {
-        // 카카오 내비게이션 호출
-        window.Kakao.Navi.start({
-          name: name,            // 목적지 이름
-          x: lng,                // 경도
-          y: lat,                // 위도
-          coordType: 'wgs84',    // 좌표 시스템 (WGS84)
-        });
+      if (/Mobi|Android|iPhone/i.test(navigator.userAgent)) {
+        // 카카오 SDK가 로드되었는지 확인
+        if (typeof window.Kakao !== 'undefined' && window.Kakao.Navi) {
+          // 카카오 내비게이션 호출
+          window.Kakao.Navi.start({
+            name: name,            // 목적지 이름
+            x: lng,                // 경도
+            y: lat,                // 위도
+            coordType: 'wgs84',    // 좌표 시스템 (WGS84)
+          });
+        } else {
+          alert('카카오 내비 SDK가 로드되지 않았습니다.');
+        }
       } else {
-        alert('카카오 내비 SDK가 로드되지 않았습니다.');
+        alert('모바일 기기에서만 내비게이션을 사용할 수 있습니다.');
       }
-
     },
 
     toggleEdit() {
@@ -179,18 +173,44 @@ export default {
     font-weight: 400;
     span{
       color: #6a6a6a;
+      white-space: nowrap;
     }
 
     p{
-      padding-bottom: 4px;
+      padding-bottom: 9px;
       color:  #191c21;
-      font-weight: 500;
+      font-size: 21px;
+      font-weight: 700;
     }
   }
 
   .address-nav-wrap{
-    text-align: center;
-    padding: 24px;
+    padding: 32px 24px 24px;
+    position: relative;
+    .kakao-wrap {
+      font-size: 14px;
+      gap: 6px;
+      width: 100%;
+      border: 1px solid #b0b0b0;
+      align-items: center;
+      justify-content: center;
+      display: flex;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      background-color: #fff;
+      border-radius: 8px;
+
+      a {
+        img {
+          padding-top: 4px;
+          width: 24px;
+          height: 24px;
+        }
+      }
+
+      button {
+        height: 100%;
+      }
+    }
   }
 
   .content-update{

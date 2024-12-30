@@ -110,7 +110,7 @@ export default {
 <style scoped>
 .banner-wrap{
   border-radius: 4px;
-  border: 0.6px solid #b0b0b0;
+  border: 0.6px solid #b7b7b7;
   margin: 24px;
   padding: 52px 0 64px;
 

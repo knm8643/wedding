@@ -118,7 +118,7 @@ export default {
   }
 
   .calender-main-wrap {
-    margin: 24px;
+    margin: 24px 44px;
     padding-bottom: 12px;
     border-radius: 4px;
     border-top: 0.6px solid #b0b0b0;

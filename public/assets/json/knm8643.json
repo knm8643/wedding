@@ -53,7 +53,8 @@
     {
       "type": "address",
       "title": "오시는 길",
-      "description": "서울특별시 용산구 용산동 1가 8번지"
+      "description": "서울특별시 용산구 용산동 1가 8번지",
+      "mainInfo" : "로얄파크컨벤션"
     },
     {
       "type": "giftMoney",

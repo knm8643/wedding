@@ -24,7 +24,7 @@ body {
 }
 
 .snow {
-  $total: 100;
+  $total: 60;
   position: absolute;
   top:-10px;
   width: 7px;
