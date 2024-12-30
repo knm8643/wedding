@@ -72,24 +72,25 @@ export default {
   methods: {
     // 내비게이션 실행
     startNavigation() {
-      // const lat = this.latitude;  // 목적지 위도
-      // const lng = this.longitude; // 목적지 경도
-      // const name = this.section.description;    // 목적지 이름 (옵션)
+      const lat = this.latitude;  // 목적지 위도
+      const lng = this.longitude; // 목적지 경도
+      const name = this.section.description;    // 목적지 이름 (옵션)
 
-      // const kakaoNaviUrl = `kakaonavi://navigate?lat=${lat}&lon=${lng}&name=${encodeURIComponent(name)}`;
-      const kakaoNaviUrl = 'kakaonavi://navigate?lat=37.5363183673747&lon=126.977114499758&name=서울특별시 용산구 용산동 1가 8번지';
-      console.log(kakaoNaviUrl);  // 디버깅을 위한 URL 확인
+      const kakaoNaviUrl = `kakaonavi://navigate?lat=${lat}&lon=${lng}&name=${encodeURIComponent(name)}`;
+      const fallbackUrl = `https://play.google.com/store/apps/details?id=com.kakao.taxi`; // 카카오내비 앱 다운로드 페이지
 
-
-      // 모바일 기기에서만 내비게이션 호출
       if (/Mobi|Android|iPhone/i.test(navigator.userAgent)) {
+        setTimeout(() => {
+          // 앱이 열리지 않으면 구글 플레이 스토어로 이동
+          window.location.href = kakaoNaviUrl;
 
-        window.location.href = kakaoNaviUrl;
+          // 1초 후, 앱이 열리지 않으면 구글 플레이로 리디렉션
+          setTimeout(() => {
+            window.location.href = fallbackUrl;
+          }, 1000);
+        }, 500);
       } else {
         alert('모바일 기기에서만 내비게이션을 사용할 수 있습니다.');
-        // setTimeout(() => {
-        //   window.location.href = `https://www.google.com/maps?q=${lat},${lng}`;
-        // }, 1500); // 1.5초 후 구글 맵으로 대체
       }
     },
 
