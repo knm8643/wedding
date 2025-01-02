@@ -29,16 +29,15 @@
       </p>
     </div>
 
-    <div class="content">
-      <p>-</p>
-    </div>
 
     <!-- 저작권 표시 -->
     <div class="content">
-      <p style="font-style: italic; font-size: 12px; color: #999; text-align: center;">
+      <p style="font-style: italic; font-size: 12px; color: #999; text-align: center; padding: 24px">
         Lyrics by Disney - From *"Beauty and the Beast"*
       </p>
     </div>
+
+    <div class="scroll-line" :class="{ 'line-visible': isVisible }"></div>
 
     <!-- 내용 -->
     <div class="content">

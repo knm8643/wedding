@@ -26,13 +26,12 @@ body {
 .snow {
   $total: 80;
   position: absolute;
-  top:-10px;
+  top:-25px;
   width: 7px;
   height: 7px;
   background: var(--snow-color);
   border-radius: 50%;
-  filter: drop-shadow(0 0 1.6px var(--snow-color));
-
+  filter: drop-shadow(0 0 1.6px var(--snow-color))blur(5px);
   @for $i from 1 through $total {
     $random-x: random(1000000) * 0.0001vw;
     $random-offset: random_range(-100000, 100000) * 0.0001vw;

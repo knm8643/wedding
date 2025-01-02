@@ -219,7 +219,7 @@ export default {
       .google-main,
       .kakao-main{
         border: 1px solid #b0b0b0;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
         background-color: #fff;
         border-radius: 8px;
         padding: 0 12px;
