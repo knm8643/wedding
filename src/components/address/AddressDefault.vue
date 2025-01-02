@@ -18,11 +18,19 @@
     <!-- 내비게이션 버튼을 마크업에서 미리 정의 -->
     <div class="address-nav-wrap">
       <div class="kakao-wrap">
-        <a id="start-navigation" @click="startNavigation">
-          <img src="https://developers.kakao.com/assets/img/about/buttons/navi/kakaonavi_btn_medium.png"
-               alt="길 안내하기 버튼" />
-        </a>
-        <button @click="startNavigation">내비게이션 안내하기</button>
+        <div class="kakao-main">
+          <a id="start-navigation" @click="startNavigation('kakao')">
+            <img src="https://developers.kakao.com/assets/img/about/buttons/navi/kakaonavi_btn_medium.png"
+                 alt="길 안내하기 버튼" />
+          </a>
+          <button @click="startNavigation('kakao')">카카오내비</button>
+        </div>
+        <div class="google-main">
+          <a @click="startNavigation('google')">
+            <img src="../../assets/img/icon/google.png" alt="google">
+          </a>
+          <button @click="startNavigation('google')">구글길안내</button>
+        </div>
       </div>
     </div>
 
@@ -31,6 +39,8 @@
         {{ isEditing ? "저장하기" : "수정하기" }}
       </button>
     </div>
+
+    <div class="line"></div>
   </div>
 </template>
 
@@ -79,23 +89,29 @@ export default {
 
   methods: {
     // 내비게이션 실행
-    startNavigation() {
+    startNavigation(param) {
       const lat = this.latitude;  // 목적지 위도
       const lng = this.longitude; // 목적지 경도
       const name = this.section.description;    // 목적지 이름 (옵션)
 
       if (/Mobi|Android|iPhone/i.test(navigator.userAgent)) {
-        // 카카오 SDK가 로드되었는지 확인
-        if (typeof window.Kakao !== 'undefined' && window.Kakao.Navi) {
-          // 카카오 내비게이션 호출
-          window.Kakao.Navi.start({
-            name: name,            // 목적지 이름
-            x: lng,                // 경도
-            y: lat,                // 위도
-            coordType: 'wgs84',    // 좌표 시스템 (WGS84)
-          });
+
+        if(param === 'kakao') {
+          // 카카오 SDK가 로드되었는지 확인
+          if (typeof window.Kakao !== 'undefined' && window.Kakao.Navi) {
+            // 카카오 내비게이션 호출
+            window.Kakao.Navi.start({
+              name: name,            // 목적지 이름
+              x: lng,                // 경도
+              y: lat,                // 위도
+              coordType: 'wgs84',    // 좌표 시스템 (WGS84)
+            });
+          } else {
+            alert('카카오 내비 SDK가 로드되지 않았습니다.');
+          }
         } else {
-          alert('카카오 내비 SDK가 로드되지 않았습니다.');
+          const googleMapsUrl = `https://www.google.com/maps/dir/?api=1&destination=${lat},${lng}&travelmode=driving`;
+          window.location.href = googleMapsUrl;
         }
       } else {
         alert('모바일 기기에서만 내비게이션을 사용할 수 있습니다.');
@@ -143,10 +159,10 @@ export default {
           });
 
           // 인포윈도우로 장소에 대한 설명을 표시합니다
-          var infowindow = new kakao.maps.InfoWindow({
-            content: '<div style="width:150px;text-align:center;padding:2px 0;">예식장</div>'
-          });
-          infowindow.open(map, marker);
+          // var infowindow = new kakao.maps.InfoWindow({
+          //   content: '<div style="width:150px;text-align:center;padding:2px 0;">예식장</div>'
+          // });
+          // infowindow.open(map, marker);
 
           // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
           map.setCenter(coords);
@@ -184,31 +200,47 @@ export default {
     }
   }
 
+  .address-map {
+    padding: 0 24px;
+    #map{
+      border: 1px solid #b0b0b0;
+    }
+  }
+
   .address-nav-wrap{
-    padding: 32px 24px 24px;
+    padding: 32px 24px;
     position: relative;
     .kakao-wrap {
       font-size: 14px;
-      gap: 6px;
+      gap: 12px;
       width: 100%;
-      border: 1px solid #b0b0b0;
       align-items: center;
-      justify-content: center;
+      justify-content: flex-start;
       display: flex;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      background-color: #fff;
-      border-radius: 8px;
 
-      a {
-        img {
-          padding-top: 4px;
-          width: 24px;
-          height: 24px;
+      .google-main,
+      .kakao-main{
+        border: 1px solid #b0b0b0;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        background-color: #fff;
+        border-radius: 8px;
+        padding: 0 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+
+        a {
+          img {
+            padding-top: 4px;
+            width: 24px;
+            height: 100%;
+          }
         }
-      }
 
-      button {
-        height: 100%;
+        button {
+          height: 100%;
+        }
       }
     }
   }
@@ -227,6 +259,10 @@ export default {
       font-size: 19px;
       font-weight: 700;
     }
+  }
+
+  .line {
+    border: 0.6px solid #b0b0b0;
   }
 
 }

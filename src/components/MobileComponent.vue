@@ -101,7 +101,7 @@ export default {
       const snowContainer = document.querySelector('.mobile-wrap');
 
       // snow를 추가할 갯수 설정
-      const snowCount = 60;
+      const snowCount = 100;
 
       // 눈 생성
       for (let i = 0; i < snowCount; i++) {
