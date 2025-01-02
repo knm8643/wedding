@@ -229,6 +229,7 @@ export default {
         align-items: center;
         justify-content: center;
         gap: 6px;
+        transition: transform 0.2s ease, box-shadow 0.2s ease; /* 부드러운 애니메이션 */
 
         a {
           img {
@@ -240,6 +241,12 @@ export default {
 
         button {
           height: 100%;
+        }
+
+
+        &:hover {
+          transform: scale(1.05); /* 살짝 커지게 설정 */
+          box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15); /* 그림자 강화 */
         }
       }
     }

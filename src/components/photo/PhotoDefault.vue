@@ -29,6 +29,22 @@
         <p>{{ section.description[0]?.userInfo_5 }}</p>
       </div>
     </div>
+
+    <!-- 전화번호 영역 -->
+    <div class="phone-info">
+      <button @click="openPopup">연락처 확인</button>
+    </div>
+
+    <!-- 팝업 영역 -->
+    <teleport to="body">
+      <div v-if="showPopup" class="popup-overlay">
+        <div class="popup">
+          <p>연락처 정보를 기입해주세요</p>
+          <button @click="closePopup">닫기</button>
+        </div>
+      </div>
+    </teleport>
+
     <div class="content-update" v-if="update" >
       <button @click="toggleEdit">
         {{ isEditing ? "저장하기" : "수정하기" }}
@@ -53,6 +69,7 @@ export default {
       isVisible: false, // 애니메이션 트리거
       isEditing: false,
       editedSection: {}, // 수정된 데이터
+      showPopup: false, // 팝업 상태
     };
   },
   props: {
@@ -82,6 +99,12 @@ export default {
     observer.observe(this.$refs.photo);
   },
   methods: {
+    openPopup() {
+      this.showPopup = true;
+    },
+    closePopup() {
+      this.showPopup = false;
+    },
     toggleEdit() {
       if (this.isEditing) {
         // 저장 버튼 클릭 시 부모로 변경된 데이터 전달
@@ -120,11 +143,23 @@ export default {
       gap: 4px;
       align-items: center;
       padding-top: 4px;
+      /*
+      cursor: pointer;
+
+       */
       p{
         color: #191c21;
         font-weight: 500;
         font-size: 21px;
+        transition: font-size 0.2s ease;
       }
+      /*
+      p:hover {
+        font-size: 22px;
+        color: #FF91A4;
+        text-decoration: underline;
+      }
+       */
       span {
         color: #b0b0b0;
         font-weight: 500;
@@ -186,5 +221,71 @@ input:hover{
 ::v-deep(.swiper-pagination-bullet-active) {
   background: #007bff; /* 활성화된 버튼 색상 */
   opacity: 1;
+}
+
+/* 팝업관련 CSS */
+
+.phone-info {
+  text-align: center;
+  button {
+    margin-top: 16px;
+    padding: 4px 16px;
+    background-color: #ff91a4;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+  }
+
+  button:hover {
+    background-color: #ff7086;
+  }
+}
+
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.popup {
+  background-color: #fff;
+  padding: 24px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.popup p {
+  font-size: 18px;
+  color: #191c21;
+  margin-bottom: 16px;
+}
+
+.popup button {
+  padding: 4px 16px;
+  background-color: #ff91a4;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  width: 100%;
+  transition: background-color 0.3s ease;
+}
+
+.popup button:hover {
+  background-color: #ff7086;
 }
 </style>

@@ -54,6 +54,16 @@
             @edit-section="editSection"
         />
       </div>
+
+      <!-- 축의금 -->
+      <div v-if="section.type === 'giftMoney'">
+        <giftDefaultInfo
+            :section="section"
+            :update="true"
+            :index="index"
+            @edit-section="editSection"
+        />
+      </div>
     </div>
   </div>
 </template>
@@ -64,10 +74,11 @@ import IntroDefault from "@/components/intro/IntroDefault.vue";
 import PhotoDefault from "@/components/photo/PhotoDefault.vue";
 import CalenderDefault from "@/components/calender/CalenderDefault.vue";
 import AddressDefault from "@/components/address/AddressDefault.vue";
+import GiftDefaultInfo from "@/components/gift/GiftDefaultInfo.vue";
 
 export default {
   name: "webDetailChild",
-  components: {AddressDefault, CalenderDefault, PhotoDefault, IntroDefault, BigBannerDefault},
+  components: {GiftDefaultInfo, AddressDefault, CalenderDefault, PhotoDefault, IntroDefault, BigBannerDefault},
   data() {
     return {
 
@@ -82,7 +93,7 @@ export default {
   computed: {
     filteredSections() {
       return this.sections.filter(section => {
-        return ['bigBanner', 'intro', 'photo', 'calender','address'].includes(section.type);
+        return ['bigBanner', 'intro', 'photo', 'calender','address','giftMoney'].includes(section.type);
       });
     }
   },

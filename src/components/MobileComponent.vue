@@ -1,70 +1,56 @@
 <template>
   <section class="mobile-wrap">
+    <!-- 첫 번째 화면 -->
+    <div v-if="showIntro" class="main-intro-wrap" :class="!showIntro ? 'hide':''">
+        <p class="typing-text" >&nbsp;{{ typingText }}</p>
+    </div>
+
+    <!-- 메인 콘텐츠 -->
     <div
+        v-else
         class="mobile-content-wrap"
         :class="mobileCheck ? 'onlyMobile' : ''"
     >
-
-      <div class="mobile-content"
-           v-for="(section, index) in filteredSections"
-           :key="index"
+      <div
+          class="mobile-content"
+          v-for="(section, index) in filteredSections"
+          :key="index"
       >
-
-        <!-- 빅배너 -->
         <div v-if="section.type === 'bigBanner'">
-          <BigBannerDefault
-            :section="section"
-            :update="false"
-          />
+          <BigBannerDefault :section="section" :update="false" />
         </div>
-
-        <!-- 인사말 -->
         <div v-if="section.type === 'intro'">
-          <introDefault
-            :section="section"
-            :update="false"
-          />
+          <introDefault :section="section" :update="false" />
         </div>
-
-        <!-- 사진리스트 -->
         <div v-if="section.type === 'photo'">
-          <photoDefault
-            :section="section"
-            :update="false"
-          />
+          <photoDefault :section="section" :update="false" />
         </div>
-
-        <!-- 달력 -->
         <div v-if="section.type === 'calender'">
-          <calenderDefault
-            :section="section"
-            :update="false"
-          />
+          <calenderDefault :section="section" :update="false" />
         </div>
-
-        <!-- 오시는길 -->
         <div v-if="section.type === 'address'">
-          <addressDefault
-            :section="section"
-            :update="false"
-          />
+          <addressDefault :section="section" :update="false" />
+        </div>
+        <div v-if="section.type === 'giftMoney'">
+          <giftDefaultInfo :section="section" :update="false" />
         </div>
       </div>
     </div>
   </section>
 </template>
-
 <script>
 import BigBannerDefault from "@/components/bigBanner/BigBannerDefault.vue";
 import IntroDefault from "@/components/intro/IntroDefault.vue";
 import PhotoDefault from "@/components/photo/PhotoDefault.vue";
 import CalenderDefault from "@/components/calender/CalenderDefault.vue";
 import AddressDefault from "@/components/address/AddressDefault.vue";
+import GiftDefaultInfo from "@/components/gift/GiftDefaultInfo.vue";
 
 export default {
   name: "mobileComponent",
   components:
       {
+        GiftDefaultInfo,
         CalenderDefault,
         PhotoDefault,
         IntroDefault,
@@ -73,12 +59,18 @@ export default {
       },
   data() {
     return {
+      showIntro: true, // 첫 화면 표시 여부
+      fullText: "저희의 결혼식에 초대합니다", // 타이핑 효과에 사용할 텍스트
+      TextTwo: '',
+      typingText: "", // 현재 보여질 텍스트
+      typingTextTwo: false,
+      typingIndex: 0, // 타이핑 중인 글자 인덱스
     };
   },
   computed: {
     filteredSections() {
       return this.sections.filter(section => {
-        return ['bigBanner', 'intro', 'photo', 'calender','address'].includes(section.type);
+        return ['bigBanner', 'intro', 'photo', 'calender','address','giftMoney'].includes(section.type);
       });
     }
   },
@@ -93,9 +85,21 @@ export default {
     }
   },
   mounted() {
-    this.addSnowEffect();
+    this.typeText();
   },
   methods: {
+    typeText() {
+      if (this.typingIndex < this.fullText.length) {
+        this.typingText += this.fullText[this.typingIndex];
+        this.typingIndex++;
+        setTimeout(this.typeText, 100); // 타이핑 속도 조절 (100ms 간격)
+      } else {
+        setTimeout(() => {
+          this.showIntro = false; // 타이핑이 끝난 후 첫 화면 숨김
+          this.addSnowEffect();
+        }, 1000); // 1초 대기 후 화면 전환
+      }
+    },
     addSnowEffect() {
       // mobile-content-wrap 요소 선택
       const snowContainer = document.querySelector('.mobile-wrap');
@@ -193,6 +197,47 @@ export default {
 .mobile-content-wrap {
   -ms-overflow-style: none;
   scrollbar-width: none;
+}
+
+// 타이핑효과
+.main-intro-wrap {
+  padding-top: 12px;
+  padding-left: 12px;
+  height: 100vh;
+  background-color: black;
+  z-index: 1000;
+  opacity: 1;
+  transition: opacity 1s ease-in-out, visibility 1s ease-in-out;
+  visibility: visible;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.main-intro-wrap.hide {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.typing-text {
+  font-size: 21px;
+  font-weight: bold;
+  color: #FFFFFF;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 1px solid #FFFFFF;
+  animation: blink 0.7s steps(2, start) infinite;
+}
+
+@keyframes blink {
+  0% {
+    border-right-color: #FFFFFF;
+  }
+  50% {
+    border-right-color: transparent;
+  }
+  100% {
+    border-right-color: #FFFFFF;
+  }
 }
 
 </style>

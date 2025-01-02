@@ -91,6 +91,7 @@ export default {
   },
   mounted() {
     this.userInfos = [
+      {name: 'admin'},
       {name: 'knm8643@nate.com'},
       {name: 'knm8643@gmail.com'},
       {name: 'nocoolboy@naver.com'},
@@ -105,6 +106,10 @@ export default {
 
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       if (!emailRegex.test(this.userEmail)) {
+        if (this.userEmail === 'admin') {
+          return true;
+        }
+
         alert('올바른 이메일 형식을 입력해주세요.');
         return false;
       }
