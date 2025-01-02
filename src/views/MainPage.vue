@@ -130,4 +130,16 @@ Copyright (c) 충림이 All rights reserved.
   transform: translateY(0);
 }
 
+
+/* PC 영역 기본 스타일 */
+.web-wrap {
+  display: block;
+}
+
+/* 화면이 475px 이하일 때 숨김 */
+@media (max-width: 475px) {
+  .web-wrap {
+    display: none;
+  }
+}
 </style>
