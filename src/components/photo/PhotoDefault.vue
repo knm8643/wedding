@@ -185,12 +185,11 @@ export default {
       this.selectedIndex = index;
       this.selectedImage = this.section.imagePath[index];
 
-      // 클릭된 이미지가 보이도록 스크롤 이동
       const target = event.target; // 클릭된 이미지 요소
       target.scrollIntoView({
-        behavior: "smooth", // 부드러운 스크롤
-        block: "nearest", // 세로 위치: 유지
-        inline: "nearest", // 가로 위치: 가운데로 스크롤
+        behavior: "smooth",
+        block: "nearest",
+        inline: "nearest",
       });
     },
     openPopup() {
@@ -201,7 +200,6 @@ export default {
     },
     toggleEdit() {
       if (this.isEditing) {
-        // 저장 버튼 클릭 시 부모로 변경된 데이터 전달
         this.$emit("edit-section", this.index, this.editedSection);
       }
       this.isEditing = !this.isEditing;
@@ -241,7 +239,7 @@ export default {
         aspect-ratio: 16 / 9;
         object-fit: cover;
         width: 30%;
-        height: 84px;
+        height: 116px;
         border: 2px solid transparent;
       }
       .selected {

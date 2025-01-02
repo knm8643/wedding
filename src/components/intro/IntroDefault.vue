@@ -6,10 +6,38 @@
   >
 
     <div class="scroll-line" :class="{ 'line-visible': isVisible }"></div>
-
     <!-- 타이틀 제목 -->
     <div class="content-title">
       {{section.title}}
+    </div>
+
+    <div class="content">
+      <p>
+        시간이 흐른 것처럼
+      </p>
+      <p>
+        진실한 마음을 담아
+      </p>
+      <p>
+        가끔은 서로 어색하지만,
+      </p>
+      <p>
+        그런 만남도 뜻밖의 사랑으로
+      </p>
+      <p>
+        바뀌게 되죠.
+      </p>
+    </div>
+
+    <div class="content">
+      <p>-</p>
+    </div>
+
+    <!-- 저작권 표시 -->
+    <div class="content">
+      <p style="font-style: italic; font-size: 12px; color: #999; text-align: center;">
+        Lyrics by Disney - From *"Beauty and the Beast"*
+      </p>
     </div>
 
     <!-- 내용 -->
@@ -98,7 +126,7 @@ export default {
     height: 52px;
   }
 
-  .content-title{
+  .content-title {
     color: #191c21;
     font-weight: 700;
     font-size: 21px;
@@ -109,15 +137,22 @@ export default {
   /* 컨텐츠 영역 */
   .content {
     padding: 24px 24px 0;
-    p{
-      white-space: nowrap;
-      color: #191c21;
-      text-align: center;
-      font-weight: 400;
-      font-size: 16px;
-      line-height: 1.8;
-      margin-bottom: 6px; /* 내용 블록 아래 간격 추가 */
-    }
+  }
+
+  .content p {
+    white-space: nowrap;
+    color: #191c21;
+    text-align: center;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.8;
+    margin-bottom: 6px; /* 내용 블록 아래 간격 추가 */
+  }
+
+  /* 저작권 텍스트 */
+  .content p[style*="font-style: italic"] {
+    font-size: 12px;
+    color: #999;
   }
 
   .content-update{
