@@ -38,6 +38,16 @@
           "userInfo_6": "충디딥"
         }
       ],
+      "numbers" : [
+        {
+          "userInfo_1": "010-5696-1909",
+          "userInfo_2": "010-5696-1909",
+          "userInfo_3": "010-5696-1909",
+          "userInfo_4": "010-5696-1909",
+          "userInfo_5": "010-5696-1909",
+          "userInfo_6": "010-5696-1909"
+        }
+      ],
       "imagePath": [
         "/assets/img/banner/knm8643/main-img-4.png",
         "/assets/img/banner/knm8643/main-img-1.png"
@@ -59,7 +69,12 @@
     {
       "type": "giftMoney",
       "title": "마음 전달하기",
-      "description": "축의금 계좌 정보입니다."
+      "description": [
+        {
+          "userInfo_1": "010-00012-223214 (신한은행)",
+          "userInfo_2": "010-00012-223214 (기업은행)"
+        }
+      ]
     },
     {
       "type": "letter",

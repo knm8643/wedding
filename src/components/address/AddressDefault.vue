@@ -39,8 +39,6 @@
         {{ isEditing ? "저장하기" : "수정하기" }}
       </button>
     </div>
-
-    <div class="line"></div>
   </div>
 </template>
 
@@ -266,10 +264,6 @@ export default {
       font-size: 19px;
       font-weight: 700;
     }
-  }
-
-  .line {
-    border: 0.6px solid #b0b0b0;
   }
 
 }

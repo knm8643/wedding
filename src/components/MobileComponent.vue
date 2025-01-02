@@ -92,12 +92,12 @@ export default {
       if (this.typingIndex < this.fullText.length) {
         this.typingText += this.fullText[this.typingIndex];
         this.typingIndex++;
-        setTimeout(this.typeText, 60); // 타이핑 속도 조절 (100ms 간격)
+        setTimeout(this.typeText, 50); // 타이핑 속도 조절 (100ms 간격)
       } else {
         setTimeout(() => {
           this.showIntro = false; // 타이핑이 끝난 후 첫 화면 숨김
           this.addSnowEffect();
-        }, 1000); // 1초 대기 후 화면 전환
+        }, 800); // 1초 대기 후 화면 전환
       }
     },
     addSnowEffect() {

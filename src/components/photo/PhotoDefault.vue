@@ -39,8 +39,83 @@
     <teleport to="body">
       <div v-if="showPopup" class="popup-overlay">
         <div class="popup">
-          <p>연락처 정보를 기입해주세요</p>
-          <button @click="closePopup">닫기</button>
+          <!-- 신랑측 -->
+          <div class="pop-wrap">
+            <h3>&lt;신랑측&gt;</h3>
+            <div class="pop-sub-wrap">
+              <span>신랑에게 연락하기</span>
+              <p>
+                <!-- 전화 아이콘 -->
+                <a :href="'tel:' + section.numbers[0]?.userInfo_1" class="contact-link">
+                  <i class="fas fa-phone-alt"></i>
+                </a>
+                <!-- 문자 아이콘 -->
+                <a :href="'sms:' + section.numbers[0]?.userInfo_1" class="contact-link">
+                  <i class="fas fa-sms"></i>
+                </a>
+              </p>
+            </div>
+            <div class="pop-sub-wrap">
+              <span>신랑측 혼주 아버지 연락하기</span>
+              <p>
+                <!-- 전화 아이콘 -->
+                <a :href="'tel:' + section.numbers[0]?.userInfo_2" class="contact-link">
+                  <i class="fas fa-phone-alt"></i>
+                </a>
+                <!-- 문자 아이콘 -->
+                <a :href="'sms:' + section.numbers[0]?.userInfo_2" class="contact-link">
+                  <i class="fas fa-sms"></i>
+                </a>
+              </p>
+            </div>
+            <div class="pop-sub-wrap">
+              <span>신랑측 혼주 어머니 연락하기</span>
+              <p>
+                <!-- 전화 아이콘 -->
+                <a :href="'tel:' + section.numbers[0]?.userInfo_3" class="contact-link">
+                  <i class="fas fa-phone-alt"></i>
+                </a>
+                <!-- 문자 아이콘 -->
+                <a :href="'sms:' + section.numbers[0]?.userInfo_3" class="contact-link">
+                  <i class="fas fa-sms"></i>
+                </a>
+              </p>
+            </div>
+          </div>
+
+          <!-- 신부측 -->
+          <div class="pop-wrap">
+            <h3>&lt;신부측&gt;</h3>
+            <div class="pop-sub-wrap">
+              <span>신부에게 연락하기</span>
+              <p>
+                <!-- 전화 아이콘 -->
+                <a :href="'tel:' + section.numbers[0]?.userInfo_1" class="contact-link">
+                  <i class="fas fa-phone-alt"></i>
+                </a>
+                <!-- 문자 아이콘 -->
+                <a :href="'sms:' + section.numbers[0]?.userInfo_1" class="contact-link">
+                  <i class="fas fa-sms"></i>
+                </a>
+              </p>
+            </div>
+            <div class="pop-sub-wrap">
+              <span>신부측 혼주 어머니 연락하기</span>
+              <p>
+                <!-- 전화 아이콘 -->
+                <a :href="'tel:' + section.numbers[0]?.userInfo_3" class="contact-link">
+                  <i class="fas fa-phone-alt"></i>
+                </a>
+                <!-- 문자 아이콘 -->
+                <a :href="'sms:' + section.numbers[0]?.userInfo_3" class="contact-link">
+                  <i class="fas fa-sms"></i>
+                </a>
+              </p>
+            </div>
+          </div>
+
+          <!-- 닫기 버튼 -->
+          <p class="close-popup" @click="closePopup">닫기</p>
         </div>
       </div>
     </teleport>
@@ -262,30 +337,70 @@ input:hover{
   background-color: #fff;
   padding: 24px;
   border-radius: 12px;
-  text-align: center;
+  text-align: left;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  .pop-wrap{
+    padding-bottom: 12px;
+    h3{
+      font-weight: 700;
+      font-size: 18px;
+      padding-bottom: 12px;
+    }
+
+    .pop-sub-wrap{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+      padding-bottom: 12px;
+
+      p{
+        display: flex;
+        gap: 12px;
+        .contact-link {
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+          margin: 10px 0;
+          color: #E57373;
+          font-size: 16px;
+          text-decoration: none;
+          transition: color 0.3s ease;
+        }
+
+        .contact-link:hover {
+          color: #ff91a4;
+        }
+
+        .contact-link i {
+          font-size: 18px;
+        }
+      }
+
+      span{
+        font-weight: 500;
+        color: #757575;
+        font-size: 16px;
+      }
+
+    }
+  }
 }
 
-.popup p {
-  font-size: 18px;
-  color: #191c21;
-  margin-bottom: 16px;
-}
-
-.popup button {
-  padding: 4px 16px;
-  background-color: #ff91a4;
-  color: #fff;
-  border: none;
-  border-radius: 8px;
+.close-popup {
+  width: 100%;
+  padding: 6px 0;
+  text-align: center;
   cursor: pointer;
+  transition: color 0.3s ease;
+  background-color: #ff91a4;
+  border-radius: 6px;
+  color: #fff;
   font-size: 14px;
   font-weight: 500;
-  width: 100%;
-  transition: background-color 0.3s ease;
 }
 
-.popup button:hover {
-  background-color: #ff7086;
+.close-popup:hover {
+  background-color: #E57373;
 }
 </style>

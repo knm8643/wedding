@@ -47,7 +47,6 @@ export default {
 %c
 해당 사이트는 개인이 만든 서비스로 누구나 \n자유롭게 이용이 가능한 공간입니다.
 %c
-※ 해당 사이트는 사용자 접속통계를 저장합니다.
 ※ 문의 knm8643@nate.com
 %c
 Copyright (c) 충림이 All rights reserved.
