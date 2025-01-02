@@ -92,7 +92,7 @@ export default {
       if (this.typingIndex < this.fullText.length) {
         this.typingText += this.fullText[this.typingIndex];
         this.typingIndex++;
-        setTimeout(this.typeText, 100); // 타이핑 속도 조절 (100ms 간격)
+        setTimeout(this.typeText, 60); // 타이핑 속도 조절 (100ms 간격)
       } else {
         setTimeout(() => {
           this.showIntro = false; // 타이핑이 끝난 후 첫 화면 숨김
@@ -105,7 +105,7 @@ export default {
       const snowContainer = document.querySelector('.mobile-wrap');
 
       // snow를 추가할 갯수 설정
-      const snowCount = 100;
+      const snowCount = 80;
 
       // 눈 생성
       for (let i = 0; i < snowCount; i++) {
