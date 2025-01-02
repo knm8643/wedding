@@ -5,17 +5,25 @@
       ref="photo"
   >
     <div class="swiper-container">
-      <swiper
-          space-between="10"
-          slides-per-view="1"
-          :loop="true"
-          :autoplay="{ delay: 3000, disableOnInteraction: false }"
-          :pagination="{ clickable: true }"
-      >
-        <swiper-slide v-for="(image, index) in section.imagePath" :key="index">
-          <img :src="image" alt="웨딩 사진" class="photo-image" />
-        </swiper-slide>
-      </swiper>
+      <div class="main-image-wrap">
+        <img
+            :src="selectedImage"
+            alt="대표 이미지"
+            class="main-image"
+        >
+      </div>
+
+      <!-- 이미지 리스트 -->
+      <div class="img-wrap">
+        <img
+            v-for="(image, index) in section.imagePath"
+            :key="index"
+            :src="image"
+            :class="{ selected: selectedIndex === index }"
+            @click="selectImage(index, $event)"
+            class="photo-image"
+        >
+      </div>
     </div>
     <div class="content-fmInfo">
       <div class="fmInfo">
@@ -129,20 +137,13 @@
 </template>
 
 <script>
-import { Swiper, SwiperSlide } from "swiper/vue";
-import "swiper/swiper-bundle.css";
-
-
 export default {
   name: "photoDefault",
-  components: {
-    Swiper,
-    SwiperSlide,
-  },
   data() {
     return {
       isVisible: false, // 애니메이션 트리거
       isEditing: false,
+      selectedIndex: 0,
       editedSection: {}, // 수정된 데이터
       showPopup: false, // 팝업 상태
     };
@@ -159,6 +160,12 @@ export default {
       type: Number
     }
   },
+  computed: {
+    selectedImage() {
+      // 선택된 이미지를 대표 이미지로 표시
+      return this.section.imagePath[this.selectedIndex];
+    },
+  },
   mounted() {
     this.editedSection = JSON.parse(JSON.stringify(this.section)); // 데이터 복사
     const observer = new IntersectionObserver(
@@ -174,6 +181,18 @@ export default {
     observer.observe(this.$refs.photo);
   },
   methods: {
+    selectImage(index, event) {
+      this.selectedIndex = index;
+      this.selectedImage = this.section.imagePath[index];
+
+      // 클릭된 이미지가 보이도록 스크롤 이동
+      const target = event.target; // 클릭된 이미지 요소
+      target.scrollIntoView({
+        behavior: "smooth", // 부드러운 스크롤
+        block: "nearest", // 세로 위치: 유지
+        inline: "nearest", // 가로 위치: 가운데로 스크롤
+      });
+    },
     openPopup() {
       this.showPopup = true;
     },
@@ -186,7 +205,7 @@ export default {
         this.$emit("edit-section", this.index, this.editedSection);
       }
       this.isEditing = !this.isEditing;
-    },
+    }
   },
 };
 </script>
@@ -197,17 +216,40 @@ export default {
   transform: translateY(30px);
   transition: opacity 1.2s ease, transform 1.2s ease;
 
+
+  /* 이미지 영역 */
   .swiper-container {
     width: 100%;
     height: auto;
     margin: 16px auto 36px;
 
-    .photo-image {
-      aspect-ratio: 16 / 9;
-      object-fit: cover;
-      width: 100%;
+    .main-image-wrap{
+      .main-image{
+        border: 0.6px solid #b0b0b0;
+        height: 375px;
+        aspect-ratio: 16 / 9;
+        object-fit: cover;
+        width: 100%;
+      }
+    }
+
+    .img-wrap{
+      display: flex;
+      overflow-x: scroll;
+      scroll-behavior: smooth; /* 부드러운 스크롤 */
+      .photo-image {
+        aspect-ratio: 16 / 9;
+        object-fit: cover;
+        width: 30%;
+        height: 84px;
+        border: 2px solid transparent;
+      }
+      .selected {
+        border-color: #ff91a4; /* 강조 테두리 색상 */
+      }
     }
   }
+  /* 이미지 영역 */
 
   .content-fmInfo{
     margin: 0 auto;
