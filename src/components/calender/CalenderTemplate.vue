@@ -2,6 +2,7 @@
   <div class="calendar-wrap-sub">
     <!-- 상단 월/연도 변경 -->
     <div class="calendar-header">
+      <p>{{ countdown }}</p>
       <!--      <button @click="prevMonth">◀</button>-->
 <!--       <span>{{ currentYear }}년 {{ currentMonth + 1 }}월</span>-->
       <!--      <button @click="nextMonth">▶</button>-->
@@ -45,7 +46,17 @@ export default {
       currentYear: null,
       currentMonth: null,
       selectedDate: null,
+      targetDate: new Date('2025-01-04T00:00:00'), // 목표 날짜 (타임존에 맞춰 설정)
+      countdown: '',
     };
+  },
+  created() {
+    // 타이머 업데이트를 매 초마다 실행
+    setInterval(this.updateCountdown, 1000);
+  },
+  beforeUnmount() {
+    // 컴포넌트가 파괴되기 전에 타이머를 정리
+    clearInterval(this.interval);
   },
   computed: {
     calendarDays() {
@@ -74,6 +85,23 @@ export default {
     this.selectedDate = day;
   },
   methods: {
+    updateCountdown() {
+      const now = new Date();
+      // const diff = this.targetDate - now;
+      const diff = new Date(this.days) - now;
+
+      if (diff <= 0) {
+        this.countdown = '우리의 결혼생활이 시작됐습니다!';
+        return;
+      }
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+      this.countdown = `${days}일 ${hours}시간 ${minutes}분 ${seconds}초 남음`;
+    },
     prevMonth() {
       if (this.currentMonth === 0) {
         this.currentMonth = 11;
@@ -114,13 +142,21 @@ export default {
 
 .calendar-header {
   display: flex;
-  justify-content: space-between;
+  //justify-content: space-between;
+  justify-content: center;
   align-items: center;
   padding: 10px 0;
-  font-weight: bold;
+  font-weight: 500;
   font-size: 18px;
   span{
     color: #191c21;
+  }
+  p{
+    font-size: 14px;
+    padding: 12px 0;
+    font-weight: 400;
+    font-style: italic;
+    color: #FF91A4;
   }
 }
 
