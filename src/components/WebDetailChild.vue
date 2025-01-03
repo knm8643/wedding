@@ -64,6 +64,10 @@
             @edit-section="editSection"
         />
       </div>
+
+      <div v-if="section.type === 'letter'">
+        편지
+      </div>
     </div>
   </div>
 </template>
@@ -93,7 +97,7 @@ export default {
   computed: {
     filteredSections() {
       return this.sections.filter(section => {
-        return ['bigBanner', 'intro', 'photo', 'calender','address','giftMoney'].includes(section.type);
+        return ['bigBanner', 'intro', 'photo', 'calender','address','giftMoney','letter'].includes(section.type);
       });
     }
   },

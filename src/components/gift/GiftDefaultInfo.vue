@@ -100,7 +100,7 @@ export default {
   transform: translateY(30px);
   transition: opacity 1.5s ease, transform 1.5s ease;
   justify-self: center;
-  padding: 0 0 42px;
+  padding: 0 0 12px;
   width: 100%;
 
   .gift-title {

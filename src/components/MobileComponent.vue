@@ -34,6 +34,9 @@
         <div v-if="section.type === 'giftMoney'">
           <giftDefaultInfo :section="section" :update="false" />
         </div>
+        <div v-if="section.type === 'letter'">
+          <letterDefault :section="section" :update="false"/>
+        </div>
       </div>
     </div>
   </section>
@@ -45,11 +48,13 @@ import PhotoDefault from "@/components/photo/PhotoDefault.vue";
 import CalenderDefault from "@/components/calender/CalenderDefault.vue";
 import AddressDefault from "@/components/address/AddressDefault.vue";
 import GiftDefaultInfo from "@/components/gift/GiftDefaultInfo.vue";
+import LetterDefault from "@/components/letter/LetterDefault.vue";
 
 export default {
   name: "mobileComponent",
   components:
       {
+        LetterDefault,
         GiftDefaultInfo,
         CalenderDefault,
         PhotoDefault,
@@ -70,7 +75,7 @@ export default {
   computed: {
     filteredSections() {
       return this.sections.filter(section => {
-        return ['bigBanner', 'intro', 'photo', 'calender','address','giftMoney'].includes(section.type);
+        return ['bigBanner', 'intro', 'photo', 'calender','address','giftMoney','letter'].includes(section.type);
       });
     }
   },
