@@ -11,39 +11,37 @@
       {{section.title}}
     </div>
 
-    <div class="content">
-      <p>
-        시간이 흐른 것처럼
-      </p>
-      <p>
-        진실한 마음을 담아
-      </p>
-      <p>
-        가끔은 서로 어색하지만,
-      </p>
-      <p>
-        그런 만남도 뜻밖의 사랑으로
-      </p>
-      <p>
-        바뀌게 되죠.
-      </p>
-    </div>
-
 
     <!-- 저작권 표시 -->
     <div class="content">
       <p style="font-style: italic; font-size: 12px; color: #999; text-align: center; padding: 24px">
-        Lyrics by Disney - From *"Beauty and the Beast"*
+        아름다운 세상 그대에게 보여주리 말해봐요<br/> 그대가 보고 싶은 것들을
       </p>
     </div>
 
-    <div class="scroll-line" :class="{ 'line-visible': isVisible }"></div>
-
     <!-- 내용 -->
     <div class="content">
-      <p>{{ section.description[0]?.line_1 }}</p>
-      <p>{{ section.description[0]?.line_2 }}</p>
-      <p>{{ section.description[0]?.line_3 }}</p>
+      <p>
+        사랑이 결실을 맺어 저희 두 사람이
+      </p>
+      <p>
+        새로운 시작을 함께 하려 합니다.
+      </p>
+      <p>
+        기쁜 마음으로 이 특별한 날에
+      </p>
+      <p>
+        소중한 분들을 모시고자 하오니
+      </p>
+      <p>
+        부디 오셔서 축복해 주시고
+      </p>
+      <p>
+        자리를 빛내 주시면 감사하겠습니다.
+      </p>
+      <p>
+        따뜻한 환영과 함께 여러분을 기다리겠습니다.
+      </p>
     </div>
 
     <div class="content-update" v-if="update" >

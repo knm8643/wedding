@@ -206,7 +206,7 @@ export default {
   }
 
   .address-nav-wrap{
-    padding: 32px 24px;
+    padding: 24px 24px;
     position: relative;
     .kakao-wrap {
       font-size: 14px;

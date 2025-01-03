@@ -210,6 +210,10 @@ export default {
   transition: opacity 1s ease-in-out, visibility 1s ease-in-out;
   visibility: visible;
   display: flex;
+  position: absolute;
+  right: 0;
+  max-width: 475px;
+  width: 100%;
   align-items: center;
   justify-content: center;
 }
