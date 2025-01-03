@@ -87,8 +87,8 @@ export default {
   methods: {
     updateCountdown() {
       const now = new Date();
-      // const diff = this.targetDate - now;
-      const diff = new Date(this.days) - now;
+      const tmp = this.days.replaceAll('.','-') + 'T00:00:00'
+      const diff = new Date(tmp) - now;
 
       if (diff <= 0) {
         this.countdown = '우리의 결혼생활이 시작됐습니다!';

@@ -30,7 +30,7 @@
                   @click.stop
               ></textarea>
             </div>
-            <div class="letter-footer">보내기</div>
+            <div class="letter-footer" @click.stop>보내기</div>
           </div>
         </div>
       </div>
